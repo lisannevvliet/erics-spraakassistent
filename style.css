@@ -49,6 +49,10 @@ body {
     width: 55px;
 }
 
+details {
+    cursor: pointer;
+}
+
 #status {
     display: none;
     width: 100vw;
