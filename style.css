@@ -1,0 +1,23 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui;
+}
+
+div {
+    height: 300px;
+}
+
+#interim {
+    color: grey;
+}
+
+#stop {
+    color: red;
+}
+
+#status {
+    display: none;
+}
