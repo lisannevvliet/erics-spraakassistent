@@ -49,7 +49,7 @@ body {
     width: 55px;
 }
 
-details {
+details summary {
     cursor: pointer;
 }
 
