@@ -1,10 +1,10 @@
-# Human Centered Design
+# Eric's Voice Assistant
 
 ## Table of contents
 - [Live demo](#live-demo)
 
 ## Live demo
-https://lisannevvliet.github.io/human-centered-design-2122/
+https://erics-voice-assistant.herokuapp.com/
 
 <!-- Add a link to your live demo in Github Pages 🌐-->
 
