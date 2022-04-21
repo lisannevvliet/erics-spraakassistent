@@ -11,7 +11,7 @@ body {
 }
 
 #transcript {
-    height: 300px;
+    height: 200px;
     background: white;
     border: 1px grey solid;
     border-radius: 5px;
@@ -59,21 +59,28 @@ body {
 	100% { transform: scale(0.95); }
 }
 
-details summary {
-    cursor: pointer;
-}
-
 ul {
     list-style-type: none;
+    padding-left: 0;
 }
 
 li {
-    line-height: 2;
+    line-height: 1.5;
 }
 
 li span {
     color: gray;
     font-style: italic;
+}
+
+details summary {
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+details[open] summary {
+    margin-bottom: 0;
 }
 
 #status {
