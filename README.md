@@ -2,9 +2,30 @@
 
 ## Table of contents
 - [Live demo](#live-demo)
+- [Testverslagen](#testverslagen)
+  * [Donderdag 21 april 2022](#donderdag-21-april-2022)
 
 ## Live demo
 https://erics-voice-assistant.herokuapp.com/
+
+## Testverslagen
+
+### Donderdag 21 april 2022
+- Moet de website automatisch starten met opnemen?
+  * Ja. Nog wel een stop- en startknop om de privacy mee te kunnen waarborgen.
+
+- Hoe moet hij iets selecteren? Is hij daar tevreden mee? Is een optie om tekst te selecteren middels spraak interessant?
+  * Eric kan prima selecteren, maar de mogelijkheid om te selecteren middels spraak is zeker interessant voor een kennis van hem die beperkter is.
+
+- Is een vertaalmachine (https://yandex.com/dev/translate/) interessant?
+  * Ja, dat is altijd leuk.
+
+- Zijn er nog overige opmerkingen?
+	*	De tussentijdse resultaten zijn te afleidend, in de uiteindelijke versie is het fijner als de gebruiker enkel ziet dat er geluisterd wordt. De tussentijdse resultaten kunnen beter in de console worden gelogd.
+	*	Zoeken naar meerdere instanties van hetzelfde woord zou handig zijn, net als grote stukken tekst op een pagina selecteren en kopiëren middels spraak. Op de positie van de geselecteerde tekst iets aanpassen is ook handig.
+	*	Implementatie van Google Docs is de moeite waard om te onderzoeken (voornamelijk Google Sheets, dat gebruikt Eric veel). Opmaak meenemen (of juist niet) is belangrijk bij het plakken.
+	*	Feedback van Koop: Is het interessant om de voice assistant in een Chrome Extensie om te zetten? Dat is persoonlijk genoeg (prioritise identity).
+	*	Voorkeur voor de Nederlandse taal, maar tweetalig is nóg beter.
 
 <!-- Add a link to your live demo in Github Pages 🌐-->
 
