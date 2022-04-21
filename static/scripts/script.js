@@ -133,6 +133,15 @@ if ("webkitSpeechRecognition" in window) {
                     window.find(string)
                 }
 
+                // Check if the word "zoek" is said.
+                if (result.includes("zoek")) {
+                    const string = result.substring(result.indexOf("zoek") + "zoek".length + 1)
+
+                    // Search everything after the word "zoek". Only works when executing twice, no idea why.
+                    window.find(string)
+                    window.find(string)
+                }
+
                 if (final_transcript == "") {
                     final_transcript += result
                 } else {
