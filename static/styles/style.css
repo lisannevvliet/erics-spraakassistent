@@ -67,7 +67,12 @@ ul {
     list-style-type: none;
 }
 
-.italic {
+li {
+    line-height: 2;
+}
+
+li span {
+    color: gray;
     font-style: italic;
 }
 

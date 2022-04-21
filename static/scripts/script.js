@@ -5,16 +5,16 @@ function $(element) {
 
 // https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Interact_with_the_clipboard#reading_from_the_clipboard
 function copy(text) {
-    // var text = ""
-    
-    // Get the selected text on the website.
-    // https://stackoverflow.com/questions/5379120/get-the-highlighted-selected-text
-    // if (window.getSelection) {
-    //     text = window.getSelection().toString()
-    // Support for Internet Explorer 9 and below.
-    // } else if (document.selection && document.selection.type != "Control") {
-    //     text = document.selection.createRange().text
-    // }
+    if (text == "") {
+        // Get the selected text on the website.
+        // https://stackoverflow.com/questions/5379120/get-the-highlighted-selected-text
+        if (window.getSelection) {
+            text = window.getSelection().toString()
+        // Support for Internet Explorer 9 and below.
+        } else if (document.selection && document.selection.type != "Control") {
+            text = document.selection.createRange().text
+        }
+    }
 
     // Copy the selected text.
     navigator.clipboard.writeText(text)
@@ -115,8 +115,12 @@ if ("webkitSpeechRecognition" in window) {
             if (event.results[index].isFinal) {
                 // Check if the word "kopieer" is said.
                 if (result.includes("kopieer")) {
-                    // Copy everything after the word "kopieer".
-                    copy(result.substring(result.indexOf("kopieer") + "kopieer".length + 1))
+                    if (result.includes("geselecteerde tekst")) {
+                        copy("")
+                    } else {
+                        // Copy everything after the word "kopieer".
+                        copy(result.substring(result.indexOf("kopieer") + "kopieer".length + 1))
+                    }
                 }
 
                 // Check if the word "plak" is said.
