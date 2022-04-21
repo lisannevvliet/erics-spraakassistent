@@ -49,10 +49,6 @@ function paste() {
     })
 }
 
-function search(string) {
-    window.find(string)
-}
-
 // Check if speech recognition is supported. If not, log an error message.
 // https://blog.zolomohan.com/speech-recognition-in-javascript
 if ("webkitSpeechRecognition" in window) {
@@ -130,8 +126,11 @@ if ("webkitSpeechRecognition" in window) {
 
                 // Check if the word "vind" is said.
                 if (result.includes("vind")) {
-                    // Search everything after the word "vind".
-                    search(result.substring(result.indexOf("vind") + "vind".length + 1))
+                    const string = result.substring(result.indexOf("vind") + "vind".length + 1)
+
+                    // Search everything after the word "vind". Only works when executing twice, no idea why.
+                    window.find(string)
+                    window.find(string)
                 }
 
                 if (final_transcript == "") {
