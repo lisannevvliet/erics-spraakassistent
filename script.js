@@ -1,6 +1,56 @@
-// Return the Element object of the corresponding element.
 function $(element) {
+    // Return the Element object of the corresponding element.
     return document.querySelector(element)
+}
+
+function copy() {
+    // String for the selected text.
+    var text = ""
+                    
+    // Get the selected text on the website.
+    // https://stackoverflow.com/questions/5379120/get-the-highlighted-selected-text
+    if (window.getSelection) {
+        text = window.getSelection().toString()
+    // Support for Internet Explorer 9 and below.
+    } else if (document.selection && document.selection.type != "Control") {
+        text = document.selection.createRange().text
+    }
+
+    // Copy the selected text.
+    navigator.clipboard.writeText(text)
+
+    // Fill the status pop-up with the text that has been copied.
+    $("#status div p").innerHTML = `<img src="images/copy.png"> "${text}" gekopieerd.`
+
+    // Show the status pop-up.
+    $("#status").classList.add("show")
+
+    // Hide the status pop-up after 3 seconds.
+    setTimeout(function() {
+        $("#status").classList.remove("show")
+    }, 3000)
+}
+
+function paste() {
+    navigator.clipboard.readText().then(text => {
+        // Add the clipboard text to the HTML.
+        $("#clipboard").innerText = text
+
+        // Fill the status pop-up with the clipboard text.
+        $("#status div p").innerHTML = `<img src="images/clipboard.png"> "${text}" geplakt.`
+
+        // Show the status pop-up.
+        $("#status").classList.add("show")
+
+        // Hide the status pop-up after 3 seconds.
+        setTimeout(function() {
+            $("#status").classList.remove("show")
+        }, 3000)
+    })
+}
+
+function search(string) {
+    window.find(string)
 }
 
 // Check if speech recognition is supported. If not, log an error message.
@@ -61,50 +111,17 @@ if ("webkitSpeechRecognition" in window) {
                 // Check if the word "kopieer" is said.
                 // https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Interact_with_the_clipboard#reading_from_the_clipboard
                 if (event.results[index][0].transcript == "kopieer") {
-                    // String for the selected text.
-                    var text = ""
-                    
-                    // Get the selected text on the website.
-                    // https://stackoverflow.com/questions/5379120/get-the-highlighted-selected-text
-                    if (window.getSelection) {
-                        text = window.getSelection().toString()
-                    // Support for Internet Explorer 9 and below.
-                    } else if (document.selection && document.selection.type != "Control") {
-                        text = document.selection.createRange().text
-                    }
-
-                    // Copy the selected text.
-                    navigator.clipboard.writeText(text)
-
-                    // Fill the status pop-up with the text that has been copied.
-                    $("#status div p").innerHTML = `<img src="images/copy.png"> "${text}" gekopieerd.`
-
-                    // Show the status pop-up.
-                    $("#status").classList.add("show")
-
-                    // Hide the status pop-up after 3 seconds.
-                    setTimeout(function() {
-                        $("#status").classList.remove("show")
-                    }, 3000)
+                    copy()
                 }
 
                 // Check if the word "plak" is said.
                 if (event.results[index][0].transcript == "plak") {
-                    navigator.clipboard.readText().then(text => {
-                        // Add the clipboard text to the HTML.
-                        $("#clipboard").innerText = text
+                    paste()
+                }
 
-                        // Fill the status pop-up with the clipboard text.
-                        $("#status div p").innerHTML = `<img src="images/clipboard.png"> "${text}" geplakt.`
-
-                        // Show the status pop-up.
-                        $("#status").classList.add("show")
-
-                        // Hide the status pop-up after 3 seconds.
-                        setTimeout(function() {
-                            $("#status").classList.remove("show")
-                        }, 3000)
-                    })
+                // Check if the word "vind" is said.
+                if (event.results[index][0].transcript == "vind") {
+                    search("Appels")
                 }
             } else {
                 interim_transcript += event.results[index][0].transcript
