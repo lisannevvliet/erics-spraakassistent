@@ -3,18 +3,18 @@ function $(element) {
     return document.querySelector(element)
 }
 
-function copy() {
-    // String for the selected text.
-    var text = ""
-                    
+// https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Interact_with_the_clipboard#reading_from_the_clipboard
+function copy(text) {
+    // var text = ""
+    
     // Get the selected text on the website.
     // https://stackoverflow.com/questions/5379120/get-the-highlighted-selected-text
-    if (window.getSelection) {
-        text = window.getSelection().toString()
+    // if (window.getSelection) {
+    //     text = window.getSelection().toString()
     // Support for Internet Explorer 9 and below.
-    } else if (document.selection && document.selection.type != "Control") {
-        text = document.selection.createRange().text
-    }
+    // } else if (document.selection && document.selection.type != "Control") {
+    //     text = document.selection.createRange().text
+    // }
 
     // Copy the selected text.
     navigator.clipboard.writeText(text)
@@ -58,11 +58,9 @@ function search(string) {
 if ("webkitSpeechRecognition" in window) {
     // Initialize webkitSpeechRecognition.
     let speechRecognition = new webkitSpeechRecognition()
-    // String for the final transcript.
-    let final_transcript = ""
-
-    // Automatically stop the recording.
-    speechRecognition.continuous = false
+    
+    // Do not automatically stop the recording.
+    speechRecognition.continuous = true
     // Enable interim results.
     speechRecognition.interimResults = true
     // Set the language to Dutch.
@@ -75,16 +73,20 @@ if ("webkitSpeechRecognition" in window) {
         // Set the state to active.
         active = true
 
-        // Darken the record button.
-        $("#record").classList.add("dark")
+        // Make the record button red.
+        $("#record").classList.add("red")
+        // Animate the record button.
+        $("#record img").classList.add("pulse")
     }
 
     speechRecognition.onerror = () => {
         // Set the state to inactive.
         active = false
 
-        // Lighten the record button.
-        $("#record").classList.remove("dark")
+        // Make the record button the default color.
+        $("#record").classList.remove("red")
+        // Remove the record button animation.
+        $("#record img").classList.remove("pulse")
 
         // Log an error message.
         console.log("Spraakherkenningsfout.")
@@ -94,37 +96,48 @@ if ("webkitSpeechRecognition" in window) {
         // Set the state to inactive.
         active = false
 
-        // Lighten the record button.
-        $("#record").classList.remove("dark")
+        // Make the record button the default color.
+        $("#record").classList.remove("red")
+        // Remove the record button animation.
+        $("#record img").classList.remove("pulse")
     }
 
+    let final_transcript = ""
+
     speechRecognition.onresult = (event) => {
-        // String for the interim transcript.
         let interim_transcript = ""
   
         // Loop through the results.
         for (let index = event.resultIndex; index < event.results.length; ++index) {
+            const result = event.results[index][0].transcript
+
             // Add the result to the corresponding string (final or interim).
             if (event.results[index].isFinal) {
-                final_transcript += event.results[index][0].transcript
-
                 // Check if the word "kopieer" is said.
-                // https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Interact_with_the_clipboard#reading_from_the_clipboard
-                if (event.results[index][0].transcript == "kopieer") {
-                    copy()
+                if (result.includes("kopieer")) {
+                    // Copy everything after the word "kopieer".
+                    copy(result.substring(result.indexOf("kopieer") + "kopieer".length + 1))
                 }
 
                 // Check if the word "plak" is said.
-                if (event.results[index][0].transcript == "plak") {
+                if (result.includes("plak")) {
                     paste()
                 }
 
                 // Check if the word "vind" is said.
-                if (event.results[index][0].transcript == "vind") {
-                    search("Appels")
+                if (result.includes("vind")) {
+                    // Search everything after the word "vind".
+                    search(result.substring(result.indexOf("vind") + "vind".length + 1))
+                }
+
+                if (final_transcript == "") {
+                    final_transcript += result
+                } else {
+                    // Add a space before the result if there are previous results.
+                    final_transcript += ` ${result}`
                 }
             } else {
-                interim_transcript += event.results[index][0].transcript
+                interim_transcript += result
             }
         }
 

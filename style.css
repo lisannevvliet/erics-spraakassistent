@@ -40,8 +40,8 @@ body {
     transition: background .3s ease-in-out;
 }
 
-#record.dark {
-    background: #007474;
+#record.red {
+    background: red;
 }
 
 #record img {
@@ -49,8 +49,22 @@ body {
     width: 55px;
 }
 
+#record img.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+	0% { transform: scale(0.95); }
+	70% { transform: scale(1); }
+	100% { transform: scale(0.95); }
+}
+
 details summary {
     cursor: pointer;
+}
+
+ul {
+    list-style-type: none;
 }
 
 #status {
