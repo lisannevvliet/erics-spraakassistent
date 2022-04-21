@@ -67,6 +67,10 @@ ul {
     list-style-type: none;
 }
 
+.italic {
+    font-style: italic;
+}
+
 #status {
     display: none;
     width: 100vw;
