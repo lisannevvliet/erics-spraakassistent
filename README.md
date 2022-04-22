@@ -1,16 +1,17 @@
 # Eric's Voice Assistant
 
-## Table of contents
+## Inhoudsopgave
 - [Live demo](#live-demo)
 - [Testverslagen](#testverslagen)
-  * [Donderdag 21 april 2022](#donderdag-21-april-2022)
+  * [Versie 1](#versie-1)
 
 ## Live demo
 https://erics-voice-assistant.herokuapp.com/
 
 ## Testverslagen
 
-### Donderdag 21 april 2022
+### [Versie 1](https://github.com/lisannevvliet/erics-voice-assistant/tree/versie-1)
+**21 april 2022**
 - Moet de website automatisch starten met opnemen?
   * Ja. Nog wel een stop- en startknop om de privacy mee te kunnen waarborgen.
 
@@ -26,7 +27,7 @@ https://erics-voice-assistant.herokuapp.com/
 	*	Implementatie van Google Docs is de moeite waard om te onderzoeken (voornamelijk Google Sheets, dat gebruikt Eric veel). Opmaak meenemen (of juist niet) is belangrijk bij het plakken.
 	*	Feedback van Koop: Is het interessant om de voice assistant in een Chrome Extensie om te zetten? Dat is persoonlijk genoeg (prioritise identity).
 	*	Voorkeur voor de Nederlandse taal, maar tweetalig is nóg beter.
-  * Liever één hele solide functie dan meerdere half-werkende functies.
+	*	Liever één hele solide functie dan meerdere half-werkende functies.
 
 <!-- Add a link to your live demo in Github Pages 🌐-->
 
