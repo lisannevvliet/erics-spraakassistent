@@ -49,6 +49,14 @@ function paste() {
     })
 }
 
+function select(result, string) {
+    // Cut the string after the select command.
+    string = result.substring(result.indexOf(string) + string.length + 1)
+
+    // Find the string in the current page.
+    window.find(string)
+}
+
 // Check if speech recognition is supported. If not, log an error message.
 // https://blog.zolomohan.com/speech-recognition-in-javascript
 if ("webkitSpeechRecognition" in window) {
@@ -124,22 +132,19 @@ if ("webkitSpeechRecognition" in window) {
                     paste()
                 }
 
+                // Check if the word "selecteer" is said.
+                if (result.includes("selecteer")) {
+                    select(result, "selecteer")
+                } 
+
                 // Check if the word "vind" is said.
                 if (result.includes("vind")) {
-                    const string = result.substring(result.indexOf("vind") + "vind".length + 1)
-
-                    // Search everything after the word "vind". Only works when executing twice, no idea why.
-                    window.find(string)
-                    window.find(string)
+                    select(result, "vind")
                 }
 
                 // Check if the word "zoek" is said.
                 if (result.includes("zoek")) {
-                    const string = result.substring(result.indexOf("zoek") + "zoek".length + 1)
-
-                    // Search everything after the word "zoek". Only works when executing twice, no idea why.
-                    window.find(string)
-                    window.find(string)
+                    select(result, "zoek")
                 }
 
                 if (final_transcript == "") {
