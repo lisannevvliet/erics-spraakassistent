@@ -10,18 +10,6 @@ body {
     margin: 0 auto;
 }
 
-#transcript {
-    height: 200px;
-    background: white;
-    border: 1px grey solid;
-    border-radius: 5px;
-    padding: 10px;
-}
-
-#interim {
-    color: grey;
-}
-
 #record {
     height: 100px;
     width: 100px;
@@ -32,7 +20,6 @@ body {
     cursor: pointer;
     padding: 0;
     margin-top: 25px;
-    margin-bottom: 10px;
 }
 
 #record:hover {
@@ -52,6 +39,32 @@ body {
 #record img.stop {
     height: 40px;
     width: 40px;
+}
+
+h2 {
+    margin-top: 50px;
+}
+
+#transcript {
+    height: 100px;
+    background: white;
+    border: none;
+    border-radius: 5px;
+    text-align: start;
+    padding: 10px;
+}
+
+#interim {
+    color: grey;
+}
+
+textarea {
+    font-family: system-ui;
+    font-size: medium;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
 }
 
 ul {

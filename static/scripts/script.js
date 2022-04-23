@@ -3,6 +3,19 @@ function $(element) {
     return document.querySelector(element)
 }
 
+function popup(image, string) {
+    // Fill the pop-up with the image and string.
+    $("#pop-up div p").innerHTML = `<img src="images/${image}"> ${string}`
+
+    // Show the pop-up.
+    $("#pop-up").classList.add("show")
+
+    // Hide the pop-up after 3 seconds.
+    setTimeout(function() {
+        $("#pop-up").classList.remove("show")
+    }, 3000)
+}
+
 // https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Interact_with_the_clipboard#reading_from_the_clipboard
 function copy(text) {
     if (text == "") {
@@ -19,29 +32,8 @@ function copy(text) {
     // Copy the selected text.
     navigator.clipboard.writeText(text)
 
-    // Fill the status pop-up with the text that has been copied.
-    $("#status div p").innerHTML = `<img src="images/copy.png"> "${text}" gekopieerd.`
-
-    // Show the status pop-up.
-    $("#status").classList.add("show")
-
-    // Hide the status pop-up after 3 seconds.
-    setTimeout(function() {
-        $("#status").classList.remove("show")
-    }, 3000)
-}
-
-function popup(image, string) {
-    // Fill the pop-up with the image and string.
-    $("#pop-up div p").innerHTML = `<img src="images/${image}"> ${string}`
-
-    // Show the pop-up.
-    $("#pop-up").classList.add("show")
-
-    // Hide the pop-up after 3 seconds.
-    setTimeout(function() {
-        $("#pop-up").classList.remove("show")
-    }, 3000)
+    // Fill and show the pop-up.
+    popup("copy.png", `"${text}" gekopieerd.`)
 }
 
 function paste() {
@@ -50,7 +42,7 @@ function paste() {
         $("textarea").value = text
 
         // Fill and show the pop-up.
-        popup("clipboard.png", "\"${text}\" geplakt.")
+        popup("clipboard.png", `"${text}" geplakt.`)
     })
 }
 
@@ -117,9 +109,8 @@ if ("webkitSpeechRecognition" in window) {
         $("#record img").classList.remove("stop")
     }
 
-    let final_transcript = ""
-
     speechRecognition.onresult = (event) => {
+        let final_transcript = ""
         let interim_transcript = ""
   
         // Loop through the results.
@@ -163,18 +154,13 @@ if ("webkitSpeechRecognition" in window) {
                     popup("warning.png", "Stemcommando onduidelijk.")
                 }
 
-                if (final_transcript == "") {
-                    final_transcript += result
-                } else {
-                    // Add a space before the result if there are previous results.
-                    final_transcript += ` ${result}`
-                }
+                final_transcript += result
             } else {
                 interim_transcript += result
             }
         }
 
-        // Add the final and interim transcript to the HTML.
+        // Add the final or interim transcript to the HTML.
         $("#final").innerHTML = final_transcript
         $("#interim").innerHTML = interim_transcript
     }
