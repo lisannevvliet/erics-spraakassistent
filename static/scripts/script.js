@@ -70,13 +70,7 @@ if ("webkitSpeechRecognition" in window) {
     // Set the language to Dutch.
     speechRecognition.lang = "nl-NL"
 
-    // Boolean for the state of the speech recognition.
-    let active = false
-
     speechRecognition.onstart = () => {
-        // Set the state to active.
-        active = true
-
         // Make the record button red.
         $("#record").classList.add("red")
         // Fill the record button with a stop image.
@@ -86,9 +80,6 @@ if ("webkitSpeechRecognition" in window) {
     }
 
     speechRecognition.onerror = () => {
-        // Set the state to inactive.
-        active = false
-
         // Make the record button the default color.
         $("#record").classList.remove("red")
         // Fill the record button with a microphone image.
@@ -101,9 +92,6 @@ if ("webkitSpeechRecognition" in window) {
     }
 
     speechRecognition.onend = () => {
-        // Set the state to inactive.
-        active = false
-
         // Make the record button the default color.
         $("#record").classList.remove("red")
         // Fill the record button with a microphone image.
@@ -173,10 +161,10 @@ if ("webkitSpeechRecognition" in window) {
     speechRecognition.start()
 
     $("#record").onclick = () => {
-        if (active == false) {
+        try {
             // Start the speech recognition.
             speechRecognition.start()
-        } else {
+        } catch {
             // Stop the speech recognition.
             speechRecognition.stop()
         }
