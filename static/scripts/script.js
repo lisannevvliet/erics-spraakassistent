@@ -31,21 +31,26 @@ function copy(text) {
     }, 3000)
 }
 
+function popup(image, string) {
+    // Fill the pop-up with the image and string.
+    $("#pop-up div p").innerHTML = `<img src="images/${image}"> ${string}`
+
+    // Show the pop-up.
+    $("#pop-up").classList.add("show")
+
+    // Hide the pop-up after 3 seconds.
+    setTimeout(function() {
+        $("#pop-up").classList.remove("show")
+    }, 3000)
+}
+
 function paste() {
     navigator.clipboard.readText().then(text => {
-        // Add the clipboard text to the HTML.
-        $("#clipboard").innerText = text
+        // Fill the input field with the clipboard text.
+        $("input").value = text
 
-        // Fill the status pop-up with the clipboard text.
-        $("#status div p").innerHTML = `<img src="images/clipboard.png"> "${text}" geplakt.`
-
-        // Show the status pop-up.
-        $("#status").classList.add("show")
-
-        // Hide the status pop-up after 3 seconds.
-        setTimeout(function() {
-            $("#status").classList.remove("show")
-        }, 3000)
+        // Fill and show the pop-up.
+        popup("clipboard.png", "\"${text}\" geplakt.")
     })
 }
 
@@ -79,8 +84,10 @@ if ("webkitSpeechRecognition" in window) {
 
         // Make the record button red.
         $("#record").classList.add("red")
-        // Animate the record button.
-        $("#record img").classList.add("pulse")
+        // Fill the record button with a stop image.
+        $("#record img").src = "images/stop.png"
+        // Add bigger padding around the stop image.
+        $("#record img").classList.add("stop")
     }
 
     speechRecognition.onerror = () => {
@@ -89,8 +96,10 @@ if ("webkitSpeechRecognition" in window) {
 
         // Make the record button the default color.
         $("#record").classList.remove("red")
-        // Remove the record button animation.
-        $("#record img").classList.remove("pulse")
+        // Fill the record button with a microphone image.
+        $("#record img").src = "images/microphone.png"
+        // Remove the bigger padding from the stop image.
+        $("#record img").classList.remove("stop")
 
         // Log an error message.
         console.log("Spraakherkenningsfout.")
@@ -102,8 +111,10 @@ if ("webkitSpeechRecognition" in window) {
 
         // Make the record button the default color.
         $("#record").classList.remove("red")
-        // Remove the record button animation.
-        $("#record img").classList.remove("pulse")
+        // Fill the record button with a microphone image.
+        $("#record img").src = "images/microphone.png"
+        // Remove the bigger padding from the stop image.
+        $("#record img").classList.remove("stop")
     }
 
     let final_transcript = ""
@@ -147,6 +158,11 @@ if ("webkitSpeechRecognition" in window) {
                     select(result, "zoek")
                 }
 
+                if (!(result.includes("kopieer") || result.includes("plak") || result.includes("vind") || result.includes("zoek"))) {
+                    // Fill and show the pop-up.
+                    popup("warning.png", "Stemcommando onduidelijk.")
+                }
+
                 if (final_transcript == "") {
                     final_transcript += result
                 } else {
@@ -163,19 +179,16 @@ if ("webkitSpeechRecognition" in window) {
         $("#interim").innerHTML = interim_transcript
     }
 
+    // Automatically start the speech recognition.
+    speechRecognition.start()
+
     $("#record").onclick = () => {
         if (active == false) {
             // Start the speech recognition.
             speechRecognition.start()
-
-            // Set the state to active.
-            active = true
         } else {
             // Stop the speech recognition.
             speechRecognition.stop()
-
-            // Set the state to inactive.
-            active = false
         }
     }
 } else {

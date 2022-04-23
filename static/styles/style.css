@@ -49,14 +49,9 @@ body {
     width: 55px;
 }
 
-#record img.pulse {
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-	0% { transform: scale(0.95); }
-	70% { transform: scale(1); }
-	100% { transform: scale(0.95); }
+#record img.stop {
+    height: 40px;
+    width: 40px;
 }
 
 ul {
@@ -83,7 +78,7 @@ details[open] summary {
     margin-bottom: 0;
 }
 
-#status {
+#pop-up {
     display: none;
     width: 100vw;
     position: fixed;
@@ -91,11 +86,11 @@ details[open] summary {
     left: 0;
 }
 
-#status.show {
+#pop-up.show {
     display: block;
 }
 
-#status div {
+#pop-up div {
     width: fit-content;
     background: grey;
     border-radius: 5px;
@@ -104,12 +99,12 @@ details[open] summary {
     margin-bottom: 25px;
 }
 
-#status div p {
+#pop-up div p {
     color: white;
     margin: 0;
 }
 
-#status div p img {
+#pop-up div p img {
     height: 16px;
 }
 
