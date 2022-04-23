@@ -16,7 +16,9 @@ app.engine("handlebars", handlebars.engine())
 app.set("view engine", "handlebars")
 
 // Set and log the port for Express.
-app.listen(process.env.PORT, () => { console.log(`Express running at http://localhost:${process.env.PORT}.`) })
+app.listen(process.env.PORT, () => {
+    console.log(`Express running at http://localhost:${process.env.PORT}.`)
+})
 
 // Listen to all GET requests on /.
 app.get("/", (_req, res) => {

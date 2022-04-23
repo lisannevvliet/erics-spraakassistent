@@ -50,7 +50,10 @@ function select(result, string) {
     // Cut the string after the select command.
     string = result.substring(result.indexOf(string) + string.length + 1)
 
-    // Find the string in the current page.
+    // Focus on the textarea.
+    $("textarea").focus()
+
+    // Find the string in the textarea.
     window.find(string)
 }
 
@@ -110,8 +113,8 @@ if ("webkitSpeechRecognition" in window) {
     }
 
     speechRecognition.onresult = (event) => {
-        let final_transcript = ""
-        let interim_transcript = ""
+        let final = ""
+        let interim = ""
   
         // Loop through the results.
         for (let index = event.resultIndex; index < event.results.length; ++index) {
@@ -149,20 +152,21 @@ if ("webkitSpeechRecognition" in window) {
                     select(result, "zoek")
                 }
 
-                if (!(result.includes("kopieer") || result.includes("plak") || result.includes("vind") || result.includes("zoek"))) {
+                // Check if any of the voice commands are said.
+                if (!(result.includes("selecteer") || result.includes("kopieer") || result.includes("plak") || result.includes("vind") || result.includes("zoek"))) {
                     // Fill and show the pop-up.
                     popup("warning.png", "Stemcommando onduidelijk.")
                 }
 
-                final_transcript += result
+                final += result
             } else {
-                interim_transcript += result
+                interim += result
             }
         }
 
         // Add the final or interim transcript to the HTML.
-        $("#final").innerHTML = final_transcript
-        $("#interim").innerHTML = interim_transcript
+        $("#final").innerHTML = final
+        $("#interim").innerHTML = interim
     }
 
     // Automatically start the speech recognition.
