@@ -46,8 +46,8 @@ function popup(image, string) {
 
 function paste() {
     navigator.clipboard.readText().then(text => {
-        // Fill the input field with the clipboard text.
-        $("input").value = text
+        // Fill the textarea with the clipboard text.
+        $("textarea").value = text
 
         // Fill and show the pop-up.
         popup("clipboard.png", "\"${text}\" geplakt.")

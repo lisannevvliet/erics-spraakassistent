@@ -68,16 +68,6 @@ li span {
     font-style: italic;
 }
 
-details summary {
-    font-weight: bold;
-    cursor: pointer;
-    margin-bottom: 15px;
-}
-
-details[open] summary {
-    margin-bottom: 0;
-}
-
 #pop-up {
     display: none;
     width: 100vw;
