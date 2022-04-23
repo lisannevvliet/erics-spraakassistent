@@ -1,4 +1,4 @@
-# Eric's Voice Assistant
+# Eric's Spraakassistent
 
 ## Inhoudsopgave
 - [Live demo](#live-demo)
@@ -7,14 +7,14 @@
   * [Versie 1](#versie-1)
 
 ## Live demo
-https://erics-voice-assistant.herokuapp.com/
+https://erics-spraakassistent.herokuapp.com/
 
 ## Licentie
-Dit project is gelicenseerd onder de [GPL-3.0 licentie](https://github.com/lisannevvliet/erics-voice-assistant/blob/main/LICENSE).
+Dit project is gelicenseerd onder de [GPL-3.0 licentie](https://github.com/lisannevvliet/erics-spraakassistent/blob/main/LICENSE).
 
 ## Testverslagen
 
-### [Versie 1](https://github.com/lisannevvliet/erics-voice-assistant/tree/versie-1)
+### [Versie 1](https://github.com/lisannevvliet/erics-spraakassistent/tree/versie-1)
 **21 april 2022**
 - Moet de website automatisch starten met opnemen?
   * Ja. Nog wel een stop- en startknop om de privacy mee te kunnen waarborgen.
