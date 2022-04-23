@@ -2,15 +2,15 @@
 
 ## Inhoudsopgave
 - [Live demo](#live-demo)
-- [License](#license)
+- [Licentie](#licentie)
 - [Testverslagen](#testverslagen)
   * [Versie 1](#versie-1)
 
 ## Live demo
 https://erics-voice-assistant.herokuapp.com/
 
-## License
-This project is licensed under the [GPL-3.0 license](https://github.com/lisannevvliet/erics-voice-assistant/blob/main/LICENSE).
+## Licentie
+Dit project is gelicenseerd onder de [GPL-3.0 licentie](https://github.com/lisannevvliet/erics-voice-assistant/blob/main/LICENSE).
 
 ## Testverslagen
 
