@@ -1,5 +1,5 @@
 {
-  "name": "human-centered-design-2122",
+  "name": "erics-spraakassistent",
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lisannevvliet/human-centered-design-2122.git"
+    "url": "git+https://github.com/lisannevvliet/erics-spraakassistent.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/lisannevvliet/human-centered-design-2122/issues"
+    "url": "https://github.com/lisannevvliet/erics-spraakassistent/issues"
   },
-  "homepage": "https://github.com/lisannevvliet/human-centered-design-2122#readme",
+  "homepage": "https://github.com/lisannevvliet/erics-spraakassistent#readme",
   "dependencies": {
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
