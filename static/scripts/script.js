@@ -128,20 +128,31 @@ if ("webkitSpeechRecognition" in window) {
                 // Check if the word "selecteer" is said.
                 if (result.includes("selecteer")) {
                     select(result, "selecteer")
-                } 
-
-                // Check if the word "vind" is said.
-                if (result.includes("vind")) {
-                    select(result, "vind")
                 }
 
-                // Check if the word "zoek" is said.
-                if (result.includes("zoek")) {
-                    select(result, "zoek")
+                // Check if the word "schrijf" is said.
+                if (result.includes("schrijf")) {
+                    // Cut the string after the write command.
+                    string = result.substring(result.indexOf("schrijf") + "schrijf".length + 1)
+
+                    // Fill the textarea.
+                    $("textarea").value += string
+
+                    // Fill and show the pop-up.
+                    popup("pen.png", `${string} geschreven.`)
+                }
+
+                // Check if the text "maak het tekstveld leeg" is said.
+                if (result.includes("maak het tekstveld leeg") || result.includes("maak het tekst veld leeg")) {
+                    // Clear the textarea.
+                    $("textarea").value = ""
+
+                    // Fill and show the pop-up.
+                    popup("bin.png", "Tekstveld leeggemaakt.")
                 }
 
                 // Check if any of the voice commands are said.
-                if (!(result.includes("selecteer") || result.includes("kopieer") || result.includes("plak") || result.includes("vind") || result.includes("zoek"))) {
+                if (!(result.includes("selecteer") || result.includes("kopieer") || result.includes("plak") || result.includes("schrijf") || result.includes("maak het tekstveld leeg") || result.includes("maak het tekst veld leeg"))) {
                     // Fill and show the pop-up.
                     popup("warning.png", "Stemcommando onduidelijk.")
                 }

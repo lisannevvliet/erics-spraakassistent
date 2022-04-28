@@ -46,7 +46,7 @@ h2 {
 }
 
 #transcript {
-    height: 100px;
+    min-height: 39px;
     background: white;
     border: none;
     border-radius: 5px;
