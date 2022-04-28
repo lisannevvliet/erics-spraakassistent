@@ -26,6 +26,7 @@ function select(index) {
         $("textarea").focus()
 
         // Select the specified result.
+        // https://stackoverflow.com/questions/3085446/selecting-part-of-string-inside-an-input-box-with-jquery
         if (typeof $("textarea").selectionStart != "undefined") {
             $("textarea").selectionStart = selection[index][0]
             $("textarea").selectionEnd = selection[index][1]
@@ -40,6 +41,14 @@ function select(index) {
         }
     }
 }
+
+// var downloadableLink = document.createElement("a")
+// downloadableLink.setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent($("textarea").value))
+// downloadableLink.download = "myFile" + ".txt"
+// downloadableLink.innerText = "Export to text file"
+// $("#download").appendChild(downloadableLink)
+// downloadableLink.click()
+// document.body.removeChild(downloadableLink)
 
 // Check if speech recognition is supported. If not, log an error message.
 // https://blog.zolomohan.com/speech-recognition-in-javascript
