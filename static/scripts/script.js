@@ -16,45 +16,29 @@ function popup(image, string) {
     }, 3000)
 }
 
-// https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Interact_with_the_clipboard#reading_from_the_clipboard
-function copy(text) {
-    if (text == "") {
-        // Get the selected text on the website.
-        // https://stackoverflow.com/questions/5379120/get-the-highlighted-selected-text
-        if (window.getSelection) {
-            text = window.getSelection().toString()
-        // Support for Internet Explorer 9 and below.
-        } else if (document.selection && document.selection.type != "Control") {
-            text = document.selection.createRange().text
+let selection = []
+let selected
+
+function select(index) {
+    // Check if the specified result exists.
+    if (selection[index]) {
+        // Focus on the textarea.
+        $("textarea").focus()
+
+        // Select the specified result.
+        if (typeof $("textarea").selectionStart != "undefined") {
+            $("textarea").selectionStart = selection[index][0]
+            $("textarea").selectionEnd = selection[index][1]
+        } else if (document.selection && document.selection.createRange) {
+            // IE branch.
+            $("textarea").select()
+            var range = document.selection.createRange()
+            range.collapse(true)
+            range.moveEnd("character", selection[index][1])
+            range.moveStart("character", selection[index][0])
+            range.select()
         }
     }
-
-    // Copy the selected text.
-    navigator.clipboard.writeText(text)
-
-    // Fill and show the pop-up.
-    popup("copy.png", `"${text}" gekopieerd.`)
-}
-
-function paste() {
-    navigator.clipboard.readText().then((text) => {
-        // Fill the textarea with the clipboard text.
-        $("textarea").value = text
-
-        // Fill and show the pop-up.
-        popup("clipboard.png", `"${text}" geplakt.`)
-    })
-}
-
-function select(result, string) {
-    // Cut the string after the select command.
-    string = result.substring(result.indexOf(string) + string.length + 1)
-
-    // Focus on the textarea.
-    $("textarea").focus()
-
-    // Find the string in the textarea.
-    window.find(string)
 }
 
 // Check if speech recognition is supported. If not, log an error message.
@@ -110,24 +94,97 @@ if ("webkitSpeechRecognition" in window) {
 
             // Add the result to the corresponding string (final or interim).
             if (event.results[index].isFinal) {
+                // Check if the word "selecteer" is said.
+                if (result.includes("selecteer ")) {
+                    // Cut the string after the select command.
+                    const string = result.substring(result.indexOf("selecteer") + "selecteer".length + 1)
+
+                    // The "i" modifier specifies a case-insensitive match.
+                    const pattern = new RegExp(string, "gi")
+                    let match
+
+                    // Clear the previous selection.
+                    selection = []
+
+                    // Find all instances of the string in the textarea.
+                    while ((match = pattern.exec($("textarea").value)) != null) {
+                        // Add the first and last index of the result to an array.
+                        selection.push([match.index, pattern.lastIndex])
+                    }
+
+                    // Fill and show the pop-up.
+                    popup("search.png", `"${string}" ${selection.length} keer gevonden.`)
+
+                    // Set the index to 0.
+                    selected = 0
+                    
+                    // Select the first result.
+                    select(selected)
+                }
+
+                // Check if the word "volgende" is said.
+                if (result.includes("volgende")) {
+                    // Increase the index of the selected result if possible.
+                    if (selected + 1 <= selection.length - 1) {
+                        selected++
+                    }
+
+                    // Select the result.
+                    select(selected)
+
+                    // Fill and show the pop-up.
+                    popup("cursor.png", `${selected + 1}&#7497; resultaat geselecteerd.`)
+                }
+
+                // Check if the word "vorige" is said.
+                if (result.includes("vorige")) {
+                    // Decrease the index of the selected result if possible.
+                    if (selected > 0) {
+                        selected--
+                    }
+
+                    // Select the result.
+                    select(selected)
+
+                    // Fill and show the pop-up.
+                    popup("cursor.png", `${selected + 1}&#7497; resultaat geselecteerd.`)
+                }
+
                 // Check if the word "kopieer" is said.
                 if (result.includes("kopieer")) {
+                    let text
+
                     if (result.includes("geselecteerde tekst")) {
-                        copy("")
+                        // Get the selected text on the website.
+                        // https://stackoverflow.com/questions/5379120/get-the-highlighted-selected-text
+                        if (window.getSelection) {
+                            text = window.getSelection().toString()
+                        // Support for Internet Explorer 9 and below.
+                        } else if (document.selection && document.selection.type != "Control") {
+                            text = document.selection.createRange().text
+                        }
                     } else {
                         // Copy everything after the word "kopieer".
-                        copy(result.substring(result.indexOf("kopieer") + "kopieer".length + 1))
+                        text = result.substring(result.indexOf("kopieer") + "kopieer".length + 1)
                     }
+
+                    // Copy the selected text.
+                    navigator.clipboard.writeText(text)
+
+                    // Fill and show the pop-up.
+                    popup("copy.png", `"${text}" gekopieerd.`)
                 }
 
                 // Check if the word "plak" is said.
                 if (result.includes("plak")) {
-                    paste()
-                }
-
-                // Check if the word "selecteer" is said.
-                if (result.includes("selecteer")) {
-                    select(result, "selecteer")
+                    // https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Interact_with_the_clipboard#reading_from_the_clipboard
+                    navigator.clipboard.readText().then((text) => {
+                        // Fill the textarea with the clipboard text.
+                        $("textarea").value = text
+                
+                        // Fill and show the pop-up.
+                        popup("clipboard.png", `"${text}" geplakt.`)
+                    })
                 }
 
                 // Check if the word "schrijf" is said.
@@ -152,7 +209,7 @@ if ("webkitSpeechRecognition" in window) {
                 }
 
                 // Check if any of the voice commands are said.
-                if (!(result.includes("selecteer") || result.includes("kopieer") || result.includes("plak") || result.includes("schrijf") || result.includes("maak het tekstveld leeg") || result.includes("maak het tekst veld leeg"))) {
+                if (!(result.includes("selecteer ") || result.includes("volgende") || result.includes("vorige") || result.includes("kopieer") || result.includes("plak") || result.includes("schrijf") || result.includes("maak het tekstveld leeg") || result.includes("maak het tekst veld leeg"))) {
                     // Fill and show the pop-up.
                     popup("warning.png", "Stemcommando onduidelijk.")
                 }
