@@ -5,6 +5,7 @@
 - [Licentie](#licentie)
 - [Testverslagen](#testverslagen)
   * [Versie 1](#versie-1)
+  * [Versie 2](#versie-2)
 
 ## Live demo
 https://erics-spraakassistent.herokuapp.com/
@@ -32,6 +33,9 @@ Dit project is gelicenseerd onder de [GPL-3.0 licentie](https://github.com/lisan
 	*	Feedback van Koop: Is het interessant om de voice assistant in een Chrome Extensie om te zetten? Dat is persoonlijk genoeg (prioritise identity).
 	*	Voorkeur voor de Nederlandse taal, maar tweetalig is nóg beter.
 	*	Liever één hele solide functie dan meerdere half-werkende functies.
+
+### [Versie 2](https://github.com/lisannevvliet/erics-spraakassistent/tree/versie-2)
+**28 april 2022**
 
 <!-- Add a link to your live demo in Github Pages 🌐-->
 
