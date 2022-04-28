@@ -37,7 +37,7 @@ function copy(text) {
 }
 
 function paste() {
-    navigator.clipboard.readText().then(text => {
+    navigator.clipboard.readText().then((text) => {
         // Fill the textarea with the clipboard text.
         $("textarea").value = text
 
