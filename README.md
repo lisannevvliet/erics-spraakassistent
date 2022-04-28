@@ -36,6 +36,13 @@ Dit project is gelicenseerd onder de [GPL-3.0 licentie](https://github.com/lisan
 
 ### [Versie 2](https://github.com/lisannevvliet/erics-spraakassistent/tree/versie-2)
 **28 april 2022**
+- Instructies verduidelijken en wachttijd na spraakcommando's melden.
+- Meteen kopiëren na selecteren (optioneel, eventueel een checkbox van maken).
+- Spraakcommando's "kopieer geselecteerde tekst" en "selecteer" niet laten botsen.
+- Index van resultaat op het juiste moment nul zetten, er kwam namelijk een bug voor waarbij meteen het tweede resultaat geselecteerd werd.
+- Mogelijk op te selecteren van ... tot ..., met ondersteuning voor "volgende" en "vorige".
+- Vermelden dat de website spraak opneemt bovenaan de pagina.
+- Spraakcommando's failproofen (optioneel).
 
 <!-- Add a link to your live demo in Github Pages 🌐-->
 
