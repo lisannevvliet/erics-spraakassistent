@@ -42,6 +42,7 @@ function select() {
     }
 }
 
+// https://codepen.io/pedro404/pen/KKaaovd?editors=1010
 $("#download").addEventListener("click", () => {
 	const link = document.createElement("a")
 	link.download = "data-" + Date.now() + ".txt"
