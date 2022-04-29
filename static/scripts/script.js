@@ -11,44 +11,47 @@ function popup(image, string) {
     $("#pop-up").classList.add("show")
 
     // Hide the pop-up after 3 seconds.
-    setTimeout(function() {
+    setTimeout(() => {
         $("#pop-up").classList.remove("show")
     }, 3000)
 }
 
 let selection = []
-let selected
+let selected = 0
 
-function select(index) {
+function select() {
     // Check if the specified result exists.
-    if (selection[index]) {
+    if (selection[selected]) {
         // Focus on the textarea.
         $("textarea").focus()
 
         // Select the specified result.
         // https://stackoverflow.com/questions/3085446/selecting-part-of-string-inside-an-input-box-with-jquery
         if (typeof $("textarea").selectionStart != "undefined") {
-            $("textarea").selectionStart = selection[index][0]
-            $("textarea").selectionEnd = selection[index][1]
+            $("textarea").selectionStart = selection[selected][0]
+            $("textarea").selectionEnd = selection[selected][1]
         } else if (document.selection && document.selection.createRange) {
             // IE branch.
             $("textarea").select()
             var range = document.selection.createRange()
             range.collapse(true)
-            range.moveEnd("character", selection[index][1])
-            range.moveStart("character", selection[index][0])
+            range.moveEnd("character", selection[selected][1])
+            range.moveStart("character", selection[selected][0])
             range.select()
         }
     }
 }
 
-// var downloadableLink = document.createElement("a")
-// downloadableLink.setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent($("textarea").value))
-// downloadableLink.download = "myFile" + ".txt"
-// downloadableLink.innerText = "Export to text file"
-// $("#download").appendChild(downloadableLink)
-// downloadableLink.click()
-// document.body.removeChild(downloadableLink)
+$("#download").addEventListener("click", () => {
+	const link = document.createElement("a")
+	link.download = "data-" + Date.now() + ".txt"
+	const blob = new Blob([$("textarea").value], {
+		type: "text/plain"
+	})
+	link.href = URL.createObjectURL(blob)
+	link.click()
+	URL.revokeObjectURL(link.href)
+})
 
 // Check if speech recognition is supported. If not, log an error message.
 // https://blog.zolomohan.com/speech-recognition-in-javascript
@@ -128,7 +131,7 @@ if ("webkitSpeechRecognition" in window) {
                     selected = 0
                     
                     // Select the first result.
-                    select(selected)
+                    select()
                 }
 
                 // Check if the word "volgende" is said.
@@ -139,7 +142,7 @@ if ("webkitSpeechRecognition" in window) {
                     }
 
                     // Select the result.
-                    select(selected)
+                    select()
 
                     // Fill and show the pop-up.
                     popup("cursor.png", `${selected + 1}&#7497; resultaat geselecteerd.`)
@@ -153,7 +156,7 @@ if ("webkitSpeechRecognition" in window) {
                     }
 
                     // Select the result.
-                    select(selected)
+                    select()
 
                     // Fill and show the pop-up.
                     popup("cursor.png", `${selected + 1}&#7497; resultaat geselecteerd.`)
