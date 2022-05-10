@@ -2,6 +2,7 @@
 
 ## Inhoudsopgave
 - [Live demo](#live-demo)
+- [Installatie](#installatie)
 - [Licentie](#licentie)
 - [Testverslagen](#testverslagen)
   * [Versie 1](#versie-1)
@@ -10,8 +11,29 @@
 ## Live demo
 https://erics-spraakassistent.herokuapp.com/
 
+## Installatie
+Om te bekijken, bezoek de [Heroku app](https://erics-spraakassistent.herokuapp.com/). Om lokale wijzigingen aan te brengen, clone de repository en bewerk de bestanden in een IDE.
+
 ## Licentie
 Dit project is gelicenseerd onder de [GPL-3.0 licentie](https://github.com/lisannevvliet/erics-spraakassistent/blob/main/LICENSE).
+
+<!-- Add a link to your live demo in Github Pages 🌐-->
+
+<!-- ☝️ replace this description with a description of your own work -->
+
+<!-- replace the code in the /docs folder with your own, so you can showcase your work with GitHub Pages 🌍 -->
+
+<!-- Add a nice poster image here at the end of the week, showing off your shiny frontend 📸 -->
+
+<!-- Maybe a table of contents here? 📚 -->
+
+<!-- How about a section that describes how to install this project? 🤓 -->
+
+<!-- ...but how does one use this project? What are its features 🤔 -->
+
+<!-- Maybe a checklist of done stuff and stuff still on your wishlist? ✅ -->
+
+<!-- How about a license here? 📜 (or is it a licence?) 🤷 -->
 
 ## Testverslagen
 
@@ -49,21 +71,3 @@ Dit project is gelicenseerd onder de [GPL-3.0 licentie](https://github.com/lisan
 - Mogelijk op te selecteren van ... tot ..., met ondersteuning voor "volgende" en "vorige".
 - Vermelden dat de website spraak opneemt bovenaan de pagina.
 - Spraakcommando's fail-proofen (optioneel).
-
-<!-- Add a link to your live demo in Github Pages 🌐-->
-
-<!-- ☝️ replace this description with a description of your own work -->
-
-<!-- replace the code in the /docs folder with your own, so you can showcase your work with GitHub Pages 🌍 -->
-
-<!-- Add a nice poster image here at the end of the week, showing off your shiny frontend 📸 -->
-
-<!-- Maybe a table of contents here? 📚 -->
-
-<!-- How about a section that describes how to install this project? 🤓 -->
-
-<!-- ...but how does one use this project? What are its features 🤔 -->
-
-<!-- Maybe a checklist of done stuff and stuff still on your wishlist? ✅ -->
-
-<!-- How about a license here? 📜 (or is it a licence?) 🤷 -->
