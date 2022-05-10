@@ -14,6 +14,7 @@
 
 ## Beschrijving
 <!-- ☝️ replace this description with a description of your own work -->
+<!-- In de beschrijving van het project staat de opdracht uitgelegd, is het probleem duidelijk beschreven en hoe het probleem is opgelost. -->
 
 ## Poster
 <!-- Add a nice poster image here at the end of the week, showing off your shiny frontend 📸 -->
