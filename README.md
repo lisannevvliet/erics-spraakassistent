@@ -49,8 +49,8 @@ Dit project is gelicenseerd onder de [GPL-3.0 licentie](https://github.com/lisan
 
 ### Versie 1
 **Datum:**  21 april 2022  
-**Code:**  https://github.com/lisannevvliet/erics-spraakassistent/tree/versie-1  
-**Live demo:** https://erics-spraakassistent-versie-1.herokuapp.com/
+**Code: [GitHub](https://github.com/lisannevvliet/erics-spraakassistent/tree/versie-1)**  
+**Live demo: [Heroku app](https://erics-spraakassistent-versie-1.herokuapp.com/)**
 
 Tijdens de eerste test lag de focus voornamelijk op kennismaken met Eric en laten zien wat ik tot nu toe had. Nadat ik dit gedemonstreerd had, ging Eric zelf de spraakassistent uitproberen. Hij reageerde enthousiast en kwam met de onderstaande verbeterpunten en suggesties.
 
@@ -60,7 +60,7 @@ Tijdens de eerste test lag de focus voornamelijk op kennismaken met Eric en late
 - Hoe moet hij iets selecteren? Is hij daar tevreden mee? Is een optie om tekst te selecteren middels spraak interessant?
   - Eric kan prima selecteren, maar de mogelijkheid om te selecteren middels spraak is zeker interessant voor een kennis van hem die beperkter is.
 
-- Is een vertaalmachine (https://yandex.com/dev/translate/) interessant?
+- Is een [vertaalmachine](https://yandex.com/dev/translate/) interessant?
   - Ja, dat is altijd leuk.
 
 - Zijn er nog overige opmerkingen?
@@ -73,8 +73,8 @@ Tijdens de eerste test lag de focus voornamelijk op kennismaken met Eric en late
 
 ### Versie 2
 **Datum:**  28 april 2022  
-**Code:**  https://github.com/lisannevvliet/erics-spraakassistent/tree/versie-2  
-**Live demo:** https://erics-spraakassistent-versie-2.herokuapp.com/
+**Code: [GitHub](https://github.com/lisannevvliet/erics-spraakassistent/tree/versie-2)**  
+**Live demo: [Heroku app](https://erics-spraakassistent-versie-2.herokuapp.com/)**
 
 Tijdens de tweede test heb ik de eerste paar minuten niets gezegd, om de pijnpunten van de website te achterhalen. Een ander verschil met de eerste test was het apparaat waarop de website getoond werd, dit maal gebruikte hij namelijk zijn eigen Windows-laptop. Hij was wederom positief verrast. Tijdens de eerste test had hij verteld dat hij graag wilde dat de spraakassistent automatisch begon met opnemen, maar nu kwam hij hierop terug. Toen ik vroeg waarom hij dit liever niet wilde, legde hij uit dat hij het niet fijn vond dat er een kans was dat de gebruiker niet weet dat de website aan het opnemen is. Om dit te voorkomen, stelde hij voor om een melding hiervan bovenaan de website te tonen. Zo blijft de website toch toegankelijk, omdat de gebruiker niet hoeft te klikken, maar kan hij/zij niet missen dat de microfoon aanstaat. Eric kwam met de onderstaande verbeterpunten en suggesties.
 
