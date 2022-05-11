@@ -74,6 +74,8 @@ if ("webkitSpeechRecognition" in window) {
         $("#record img").src = "images/stop.png"
         // Add bigger padding around the stop image.
         $("#record img").classList.add("stop")
+        // Show the alert which tells the user that the microphone is on.
+        $("#alert").classList.add("show")
     }
 
     speechRecognition.onerror = () => {
@@ -83,6 +85,8 @@ if ("webkitSpeechRecognition" in window) {
         $("#record img").src = "images/microphone.png"
         // Remove the bigger padding from the stop image.
         $("#record img").classList.remove("stop")
+        // Remove the alert which tells the user that the microphone is on.
+        $("#alert").classList.remove("show")
 
         // Log an error message.
         console.log("Spraakherkenningsfout.")
@@ -95,6 +99,8 @@ if ("webkitSpeechRecognition" in window) {
         $("#record img").src = "images/microphone.png"
         // Remove the bigger padding from the stop image.
         $("#record img").classList.remove("stop")
+        // Remove the alert which tells the user that the microphone is on.
+        $("#alert").classList.remove("show")
     }
 
     speechRecognition.onresult = (event) => {
@@ -110,9 +116,9 @@ if ("webkitSpeechRecognition" in window) {
                 // Check if the word "selecteer" is said.
                 if (result.includes("selecteer ")) {
                     // Check if the word "van" is said.
-                    if (result.includes("van")) {
+                    if (result.includes("van ")) {
                         // Check if the word "tot" is said.
-                        if (result.includes("tot")) {
+                        if (result.includes("tot ")) {
                             // Cut the strings after the select commands.
                             const string_from = result.substring(result.indexOf("van") + "van".length + 1, result.indexOf("tot") - 1)
                             const string_to = result.substring(result.indexOf("tot") + "tot".length + 1)

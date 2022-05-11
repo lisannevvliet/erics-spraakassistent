@@ -24,8 +24,10 @@ body {
     transition: background .3s ease-in-out;
     border: none;
     border-radius: 50%;
-    cursor: pointer;
+    position: relative;
+    left: 100px;
     padding: 0;
+    cursor: pointer;
 }
 
 #record:hover {
@@ -52,18 +54,25 @@ body {
 }
 
 #alert {
-    height: 100px;
+    height: 50px;
     width: 200px;
     color: white;
     font-weight: bold;
-    background: #c50000;
+    background: darkred;
     border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    left: -50px;
+    left: 50px;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
     z-index: -1;
+}
+
+#alert.show {
+    opacity: 1;
+    transition: opacity .3s ease-in-out;
 }
 
 #alert p {
