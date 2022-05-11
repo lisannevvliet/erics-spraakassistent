@@ -16,9 +16,13 @@
 <!-- ☝️ replace this description with a description of your own work -->
 
 <!-- In de beschrijving van het project staat de opdracht uitgelegd, is het probleem duidelijk beschreven en hoe het probleem is opgelost. -->
+
 <!-- Student laat zien hoe de Exclusive Design Principles zijn toegepast in het ontwerp. De principes study situation, prioritise identity, ignore conventions en add nonsense zijn goed uitgelegd. Aan de hand van de principes wordt duidelijk gemaakt hoe deze hebben bijgedragen aan het verbeteren van het ontwerp. -->
+
 <!-- Er is een user scenario geschreven dat aansluit bij de identiteit van de test persoon. Er is een duidelijk en volledig user scenario geschreven dat antwoord geeft op de 4 w-vragen: Who? What? How? en Why? -->
+
 <!-- Er is minimaal drie keer getest. Er is een verslaglegging van de tests gedaan waarin de test-opzet wordt behandeld en er is een duidelijke conclusie beschreven met do's en dont's over hoe je goed kan testen. -->
+
 <!-- Aan de hand van de tests wordt duidelijk gemaakt hoe deze hebben bijgedragen aan het verbeteren van het ontwerp of hoe dit een volgende keer beter of anders kan. -->
 
 ## Poster
@@ -48,6 +52,8 @@ Dit project is gelicenseerd onder de [GPL-3.0 licentie](https://github.com/lisan
 **Code:**  https://github.com/lisannevvliet/erics-spraakassistent/tree/versie-1  
 **Live demo:** https://erics-spraakassistent-versie-1.herokuapp.com/
 
+Tijdens de eerste test lag de focus voornamelijk op kennismaken met Eric en laten zien wat ik tot nu toe had. Nadat ik dit gedemonstreerd had, ging Eric zelf de spraakassistent uitproberen. Hij reageerde enthousiast en kwam met de onderstaande verbeterpunten en suggesties.
+
 - Moet de website automatisch starten met opnemen?
   - Ja. Nog wel een stop- en startknop om de privacy mee te kunnen waarborgen.
 
@@ -69,6 +75,8 @@ Dit project is gelicenseerd onder de [GPL-3.0 licentie](https://github.com/lisan
 **Datum:**  28 april 2022  
 **Code:**  https://github.com/lisannevvliet/erics-spraakassistent/tree/versie-2  
 **Live demo:** https://erics-spraakassistent-versie-2.herokuapp.com/
+
+Tijdens de tweede test heb ik de eerste paar minuten niets gezegd, om de pijnpunten van de website te achterhalen. Een ander verschil met de eerste test was het apparaat waarop de website getoond werd, dit maal gebruikte hij namelijk zijn eigen Windows-laptop. Hij was wederom positief verrast. Tijdens de eerste test had hij verteld dat hij graag wilde dat de spraakassistent automatisch begon met opnemen, maar nu kwam hij hierop terug. Toen ik vroeg waarom hij dit liever niet wilde, legde hij uit dat hij het niet fijn vond dat er een kans was dat de gebruiker niet weet dat de website aan het opnemen is. Om dit te voorkomen, stelde hij voor om een melding hiervan bovenaan de website te tonen. Zo blijft de website toch toegankelijk, omdat de gebruiker niet hoeft te klikken, maar kan hij/zij niet missen dat de microfoon aanstaat.
 
 - Instructies verduidelijken en wachttijd na spraakcommando's melden.
 - Meteen kopiëren na selecteren (optioneel, eventueel een checkbox van maken).
