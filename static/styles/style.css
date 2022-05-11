@@ -58,7 +58,7 @@ body {
     width: 200px;
     color: white;
     font-weight: bold;
-    background: darkred;
+    background: rgba(139, 0, 0, 0.75);
     border-radius: 10px;
     display: flex;
     justify-content: center;

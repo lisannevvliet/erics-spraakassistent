@@ -16,42 +16,129 @@ function popup(image, string) {
     }, 3000)
 }
 
-let selection = []
-let selected = 0
+let results = []
+let index = 0
 
 function select() {
     // Check if the specified result exists.
-    if (selection[selected]) {
+    if (results[index]) {
         // Focus on the textarea.
         $("textarea").focus()
 
         // Select the specified result.
         // https://stackoverflow.com/questions/3085446/selecting-part-of-string-inside-an-input-box-with-jquery
         if (typeof $("textarea").selectionStart != "undefined") {
-            $("textarea").selectionStart = selection[selected][0]
-            $("textarea").selectionEnd = selection[selected][1]
+            $("textarea").selectionStart = results[index][0]
+            $("textarea").selectionEnd = results[index][1]
         } else if (document.selection && document.selection.createRange) {
             // IE branch.
             $("textarea").select()
             var range = document.selection.createRange()
             range.collapse(true)
-            range.moveEnd("character", selection[selected][1])
-            range.moveStart("character", selection[selected][0])
+            range.moveEnd("character", results[index][1])
+            range.moveStart("character", results[index][0])
             range.select()
         }
     }
 }
 
+function find(result, command) {
+    let string
+    let string_to
+    let pattern_to
+
+    if (command.length == 1) {
+        // Cut the string after the select command.
+        string = result.substring(result.indexOf(command[0]) + command[0].length + 1)
+    } else {
+        // Cut the strings after the select commands.
+        string = result.substring(result.indexOf(command[0]) + command[0].length + 1, result.indexOf(command[1]) - 1)
+        string_to = result.substring(result.indexOf(command[1]) + command[1].length + 1)
+
+        // The "i" modifier specifies a case-insensitive match.
+        pattern_to = new RegExp(string_to, "gi")
+    }
+
+    // The "i" modifier specifies a case-insensitive match.
+    const pattern = new RegExp(string, "gi")
+    let match
+    
+    // Clear the previous selection.
+    results = []
+
+    if (command.length == 1) {
+        if (command[0] == "vanaf") {
+            // Find all instances of the string in the textarea.
+            while ((match = pattern.exec($("textarea").value)) != null) {
+                // Add the first index of the result and last index of the textarea to an array.
+                results.push([match.index, -1])
+            }
+        } else {
+            // Find all instances of the string in the textarea.
+            while ((match = pattern.exec($("textarea").value)) != null) {
+                // Add the first and last index of the result to an array.
+                results.push([match.index, pattern.lastIndex])
+            }
+        }
+    } else {
+        // Temporarily arrays for the selections.
+        let selection_from = []
+        let selection_to = []
+
+        // Find all instances of the string in the textarea.
+        while ((match = pattern.exec($("textarea").value)) != null) {
+            // Add the first and last index of the result to an array.
+            selection_from.push([match.index, pattern.lastIndex])
+        }
+
+        // Find all instances of the string in the textarea.
+        while ((match = pattern_to.exec($("textarea").value)) != null) {
+            // Add the first and last index of the result to an array.
+            selection_to.push([match.index, pattern_to.lastIndex])
+        }
+
+        // Filter out the impossible selections.
+        selection_from.forEach((element_from) => {
+            selection_to.forEach((element_to) => {
+                if (element_from[1] < element_to[0]) {
+                    // Add the first and last index of the result to an array.
+                    results.push([element_from[0], element_to[1]])
+                }
+            })
+        })
+    }
+
+    // Fill and show the pop-up.
+    if (command.length == 1) {
+        popup("search.png", `"${string}" ${results.length} keer gevonden.`)
+    } else {
+        popup("search.png", `"${string}" tot "${string_to}" ${results.length} keer gevonden.`)
+    }
+    
+    // Set the index to 0.
+    index = 0
+    
+    // Select the first result.
+    select()
+}
+
 // https://codepen.io/pedro404/pen/KKaaovd?editors=1010
-$("#download").addEventListener("click", () => {
-	const link = document.createElement("a")
-	link.download = "data-" + Date.now() + ".txt"
+function download() {
+    const link = document.createElement("a")
 	const blob = new Blob([$("textarea").value], {
 		type: "text/plain"
 	})
+
+    link.download = "data-" + Date.now() + ".txt"
 	link.href = URL.createObjectURL(blob)
 	link.click()
+
 	URL.revokeObjectURL(link.href)
+}
+
+$("#download").addEventListener("click", () => {
+    // Download the contents of textarea as a text file.
+    download()
 })
 
 // Check if speech recognition is supported. If not, log an error message.
@@ -78,7 +165,7 @@ if ("webkitSpeechRecognition" in window) {
         $("#alert").classList.add("show")
     }
 
-    speechRecognition.onerror = () => {
+    function stop() {
         // Make the record button the default color.
         $("#record").classList.remove("red")
         // Fill the record button with a microphone image.
@@ -87,20 +174,17 @@ if ("webkitSpeechRecognition" in window) {
         $("#record img").classList.remove("stop")
         // Remove the alert which tells the user that the microphone is on.
         $("#alert").classList.remove("show")
+    }
+
+    speechRecognition.onerror = () => {
+        stop()
 
         // Log an error message.
         console.log("Spraakherkenningsfout.")
     }
 
     speechRecognition.onend = () => {
-        // Make the record button the default color.
-        $("#record").classList.remove("red")
-        // Fill the record button with a microphone image.
-        $("#record img").src = "images/microphone.png"
-        // Remove the bigger padding from the stop image.
-        $("#record img").classList.remove("stop")
-        // Remove the alert which tells the user that the microphone is on.
-        $("#alert").classList.remove("show")
+        stop()
     }
 
     speechRecognition.onresult = (event) => {
@@ -108,143 +192,50 @@ if ("webkitSpeechRecognition" in window) {
         let interim = ""
   
         // Loop through the results.
-        for (let index = event.resultIndex; index < event.results.length; ++index) {
-            const result = event.results[index][0].transcript
+        for (let i = event.resultIndex; i < event.results.length; ++i) {
+            const result = event.results[i][0].transcript
 
             // Add the result to the corresponding string (final or interim).
-            if (event.results[index].isFinal) {
+            if (event.results[i].isFinal) {
                 // Check if the word "selecteer" is said.
                 if (result.includes("selecteer ")) {
-                    // Check if the word "van" is said.
-                    if (result.includes("van ")) {
-                        // Check if the word "tot" is said.
-                        if (result.includes("tot ")) {
-                            // Cut the strings after the select commands.
-                            const string_from = result.substring(result.indexOf("van") + "van".length + 1, result.indexOf("tot") - 1)
-                            const string_to = result.substring(result.indexOf("tot") + "tot".length + 1)
-
-                            // The "i" modifier specifies a case-insensitive match.
-                            const pattern_from = new RegExp(string_from, "gi")
-                            const pattern_to = new RegExp(string_to, "gi")
-                            let match
-
-                            // Clear the previous selection.
-                            selection = []
-
-                            // Temporarily arrays for the selections.
-                            let selection_from = []
-                            let selection_to = []
-
-                            // Find all instances of the string in the textarea.
-                            while ((match = pattern_from.exec($("textarea").value)) != null) {
-                                // Add the first and last index of the result to an array.
-                                selection_from.push([match.index, pattern_from.lastIndex])
-                            }
-
-                            // Find all instances of the string in the textarea.
-                            while ((match = pattern_to.exec($("textarea").value)) != null) {
-                                // Add the first and last index of the result to an array.
-                                selection_to.push([match.index, pattern_to.lastIndex])
-                            }
-
-                            // Filter out the impossible selections.
-                            selection_from.forEach((element_from) => {
-                                selection_to.forEach((element_to) => {
-                                    if (element_from[1] < element_to[0]) {
-                                        // Add the first and last index of the result to an array.
-                                        selection.push([element_from[0], element_to[1]])
-                                    }
-                                })
-                            })
-
-                            // Fill and show the pop-up.
-                            popup("search.png", `"${string_from}" ${selection.length} keer gevonden.`)
-
-                            // Set the index to 0.
-                            selected = 0
-                            
-                            // Select the first result.
-                            select()
-                        } else {
-                            // Cut the string after the select command.
-                            const string = result.substring(result.indexOf("van") + "van".length + 1)
-
-                            // The "i" modifier specifies a case-insensitive match.
-                            const pattern = new RegExp(string, "gi")
-                            let match
-
-                            // Clear the previous selection.
-                            selection = []
-
-                            // Find all instances of the string in the textarea.
-                            while ((match = pattern.exec($("textarea").value)) != null) {
-                                // Add the first and last index of the result to an array.
-                                selection.push([match.index, -1])
-                            }
-
-                            // Fill and show the pop-up.
-                            popup("search.png", `"${string}" ${selection.length} keer gevonden.`)
-
-                            // Set the index to 0.
-                            selected = 0
-                            
-                            // Select the first result.
-                            select()
-                        }
+                    // Check if the word "vanaf" is said.
+                    if (result.includes("vanaf ")) {
+                        find(result, ["vanaf"])
+                    // Check if the words "van" and "tot" are said.
+                    } else if (result.includes("van ") && result.includes("tot ")) {
+                        find(result, ["van", "tot"])
                     } else {
-                        // Cut the string after the select command.
-                        const string = result.substring(result.indexOf("selecteer") + "selecteer".length + 1)
-
-                        // The "i" modifier specifies a case-insensitive match.
-                        const pattern = new RegExp(string, "gi")
-                        let match
-
-                        // Clear the previous selection.
-                        selection = []
-
-                        // Find all instances of the string in the textarea.
-                        while ((match = pattern.exec($("textarea").value)) != null) {
-                            // Add the first and last index of the result to an array.
-                            selection.push([match.index, pattern.lastIndex])
-                        }
-
-                        // Fill and show the pop-up.
-                        popup("search.png", `"${string}" ${selection.length} keer gevonden.`)
-
-                        // Set the index to 0.
-                        selected = 0
-                        
-                        // Select the first result.
-                        select()
+                        find(result, ["selecteer"])
                     }
                 }
 
                 // Check if the word "volgende" is said.
                 if (result.includes("volgende")) {
                     // Increase the index of the selected result if possible.
-                    if (selected + 1 <= selection.length - 1) {
-                        selected++
+                    if (index + 1 <= results.length - 1) {
+                        index++
                     }
 
                     // Select the result.
                     select()
 
                     // Fill and show the pop-up.
-                    popup("cursor.png", `${selected + 1}&#7497; resultaat geselecteerd.`)
+                    popup("cursor.png", `${index + 1}&#7497; resultaat geselecteerd (van de ${results.length}).`)
                 }
 
                 // Check if the word "vorige" is said.
                 if (result.includes("vorige")) {
                     // Decrease the index of the selected result if possible.
-                    if (selected > 0) {
-                        selected--
+                    if (index > 0) {
+                        index--
                     }
 
                     // Select the result.
                     select()
 
                     // Fill and show the pop-up.
-                    popup("cursor.png", `${selected + 1}&#7497; resultaat geselecteerd.`)
+                    popup("cursor.png", `${index + 1}&#7497; resultaat geselecteerd (van de ${results.length}).`)
                 }
 
                 // Check if the word "kopieer" is said.
@@ -296,7 +287,7 @@ if ("webkitSpeechRecognition" in window) {
                     popup("pen.png", `${string} geschreven.`)
                 }
 
-                // Check if the text "maak het tekstveld leeg" is said.
+                // Check if the sentence "maak het tekstveld leeg" is said.
                 if (result.includes("maak het tekstveld leeg") || result.includes("maak het tekst veld leeg")) {
                     // Clear the textarea.
                     $("textarea").value = ""
@@ -305,8 +296,17 @@ if ("webkitSpeechRecognition" in window) {
                     popup("bin.png", "Tekstveld leeggemaakt.")
                 }
 
+                // Check if the sentence "download tekstveld" is said.
+                if (result.includes("download tekstveld") || result.includes("download tekst veld")) {
+                    // Download the contents of textarea as a text file.
+                    download()
+
+                    // Fill and show the pop-up.
+                    popup("download.png", "Tekstveld gedownload.")
+                }
+
                 // Check if any of the voice commands are said.
-                if (!(result.includes("selecteer ") || result.includes("volgende") || result.includes("vorige") || result.includes("kopieer ") || result.includes("plak") || result.includes("schrijf ") || result.includes("maak het tekstveld leeg") || result.includes("maak het tekst veld leeg"))) {
+                if (!(result.includes("selecteer ") || result.includes("volgende") || result.includes("vorige") || result.includes("kopieer ") || result.includes("plak") || result.includes("schrijf ") || result.includes("maak het tekstveld leeg") || result.includes("maak het tekst veld leeg") || result.includes("download tekstveld") || result.includes("download tekst veld"))) {
                     // Fill and show the pop-up.
                     popup("warning.png", "Stemcommando onduidelijk.")
                 }
