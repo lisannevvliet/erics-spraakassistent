@@ -3,7 +3,7 @@
 }
 
 body {
-    background: #f5f5f5;
+    background: #fdf9f1;
     font-family: system-ui;
     text-align: center;
     width: 90vw;
@@ -28,7 +28,7 @@ button {
 #record {
     height: 100px;
     width: 100px;
-    background: darkcyan;
+    background: darkolivegreen;
     transition: background .3s ease-in-out;
     border: none;
     border-radius: 50%;
@@ -38,16 +38,16 @@ button {
 }
 
 #record:hover {
-    background: #007474;
+    background: #475927;
     transition: background .3s ease-in-out;
 }
 
 #record.red {
-    background: red;
+    background: #c50000;
 }
 
 #record.red:hover {
-    background: #e80000;
+    background: #b20000;
 }
 
 #record img {
@@ -92,11 +92,8 @@ button {
 }
 
 label {
-    cursor: pointer;
-}
-
-.flex label {
     font-weight: bold;
+    cursor: pointer;
 }
 
 h2 {
@@ -137,22 +134,27 @@ textarea {
 
 #download:hover {
     color: white;
-    background: darkcyan;
+    background: darkolivegreen;
     transition: all .3s ease-in-out;
 }
 
 #reset {
-    color: red;
+    color: #c50000;
 }
 
 #reset:hover {
     color: white;
-    background: red;
+    background: #c50000;
 }
 
 ul {
+    width: fit-content;
+    background: white;
+    border-radius: 10px;
     list-style-type: none;
-    padding-left: 0;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 li {
@@ -173,6 +175,8 @@ input[type="checkbox"] {
     display: inline-grid;
     place-content: center;
     transform: translateY(-0.075em);
+    margin-right: 4px;
+    margin-top: 8px;
     margin-bottom: 32px;
     cursor: pointer;
 }
@@ -260,7 +264,7 @@ input[type="checkbox"]:checked::before {
 
 #instructions:hover {
     color: white;
-    background: darkcyan;
+    background: darkolivegreen;
     transition: background .3s ease-in-out;
 }
 
@@ -304,7 +308,7 @@ a {
 }
 
 #close:hover {
-    color: darkcyan;
+    color: darkolivegreen;
     transition: color .3s ease-in-out;
 }
 
