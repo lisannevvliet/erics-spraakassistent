@@ -48,9 +48,7 @@ Ignore conventions gaat over het toevoegen van (in het eerste opzicht) nutteloze
 - Rolstoel die met een vaart onderaan het scherm langsrijdt zodra de naam "Eric" wordt genoemd.
 
 ## Poster
-...
-
-<!-- Add a nice poster image here at the end of the week, showing off your shiny frontend 📸 -->
+![](https://user-images.githubusercontent.com/90243819/168176736-0be3be63-b394-4aaa-aced-019746496ca0.png)
 
 ## Gebruikershandleiding en functies
 Na het vragen om toestemming om de microfoon te gebruiken, begint Eric's Spraakassistent automatisch met opnemen. De tussentijdse resultaten van de spraakassistent worden als grijze tekst getoond in het transcript. Na een aantal seconden heeft de spraakassistent besloten wat er daadwerkelijk gezegd is, kleurt de tekst zwart en wordt het spraakcommando uitgevoerd. De tekst in het tekstveld kan zowel met spraakcommando's worden gemanipuleerd als handmatig. Alle mogelijke spraakcommando's staan in een lijst op de pagina. Tijdens het eerste bezoek worden er een aantal instructies getoond, die kunnen worden weggeklikt en altijd nog kunnen worden bekeken door middel van een knop links onderin de pagina. Het is mogelijk om de taal waarin gesproken wordt aan te passen, zodat het transcript accurater wordt. Daarnaast kan er aangevinkt worden dat de geselecteerde tekst automatisch gekopieërd wordt. Deze twee opties, evenals de tekst in het tekstveld en of de instructies getoond moeten worden (alleen bij het eerste bezoek), worden opgeslagen in de localStorage, zodat ze bij een verversing van de pagina niet verloren gaan.
