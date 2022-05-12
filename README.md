@@ -2,6 +2,8 @@
 
 ## Inhoudsopgave
 - [Beschrijving](#beschrijving)
+  - [Probleemstelling / User scenario](https://github.com/lisannevvliet/erics-spraakassistent#probleemstelling--user-scenario)
+  - [Exclusive Design Principles](#exclusive-design-principles)
 - [Poster](#poster)
 - [Live demo](#live-demo)
 - [Installatie](#installatie)
@@ -14,17 +16,25 @@
   - [Versie 3](#versie-3)
 
 ## Beschrijving
-<!-- ☝️ replace this description with a description of your own work -->
+Eric's Spraakassistent is een website waarmee een tekst met enkel spraakopdrachten gemanipuleerd kan worden. Onder andere selecteren, kopiëren, plakken, schrijven, downloaden en weghalen van de tekst behoren tot de mogelijkheden.
 
-<!-- In de beschrijving van het project staat de opdracht uitgelegd, is het probleem duidelijk beschreven en hoe het probleem is opgelost. -->
+### Probleemstelling / User scenario
+Een kennis van Eric beschikt niet over de fijne motoriek die nodig is om gemakkelijk te kunnen kopiëren en plakken. Om dit probleem op te lossen, kreeg ik de opdracht om haar te laten kopiëren en plakken middels spraak. Zo wordt het mogelijk voor haar om deze handelingen relatief snel uit te voeren.
+
+### Exclusive Design Principles
+**Study situation**
+
+
+**Prioritise identity**
+
+
+**Ignore conventions**
+
+
+**Add nonsense**
+
 
 <!-- Student laat zien hoe de Exclusive Design Principles zijn toegepast in het ontwerp. De principes study situation, prioritise identity, ignore conventions en add nonsense zijn goed uitgelegd. Aan de hand van de principes wordt duidelijk gemaakt hoe deze hebben bijgedragen aan het verbeteren van het ontwerp. -->
-
-<!-- Er is een user scenario geschreven dat aansluit bij de identiteit van de test persoon. Er is een duidelijk en volledig user scenario geschreven dat antwoord geeft op de 4 w-vragen: Who? What? How? en Why? -->
-
-<!-- Er is minimaal drie keer getest. Er is een verslaglegging van de tests gedaan waarin de test-opzet wordt behandeld en er is een duidelijke conclusie beschreven met do's en dont's over hoe je goed kan testen. -->
-
-<!-- Aan de hand van de tests wordt duidelijk gemaakt hoe deze hebben bijgedragen aan het verbeteren van het ontwerp of hoe dit een volgende keer beter of anders kan. -->
 
 ## Poster
 <!-- Add a nice poster image here at the end of the week, showing off your shiny frontend 📸 -->
@@ -77,7 +87,7 @@ Tijdens de eerste test lag de focus voornamelijk op kennismaken met Eric en late
 **Code: [GitHub](https://github.com/lisannevvliet/erics-spraakassistent/tree/versie-2)**  
 **Live demo: [Heroku app](https://erics-spraakassistent-versie-2.herokuapp.com/)**
 
-Tijdens de tweede test heb ik de eerste paar minuten niets gezegd, om de pijnpunten van de website te achterhalen. Een ander verschil met de eerste test was het apparaat waarop de website getoond werd, dit maal gebruikte hij namelijk zijn eigen Windows-laptop. Hij was wederom positief verrast. Tijdens de eerste test had hij verteld dat hij graag wilde dat de spraakassistent automatisch begon met opnemen, maar nu kwam hij hierop terug. Toen ik vroeg waarom hij dit liever niet wilde, legde hij uit dat hij het niet fijn vond dat er een kans was dat de gebruiker niet weet dat de website aan het opnemen is. Om dit te voorkomen, stelde hij voor om een melding hiervan bovenaan de website te tonen. Zo blijft de website toch toegankelijk, omdat de gebruiker niet hoeft te klikken, maar kan hij/zij niet missen dat de microfoon aanstaat. Eric kwam met de onderstaande verbeterpunten en suggesties.
+Tijdens de tweede test heb ik de eerste paar minuten niets gezegd, om de pijnpunten van de website te achterhalen. Een ander verschil met de eerste test was het apparaat waarop de website getoond werd, dit maal gebruikte hij namelijk zijn eigen Windows-laptop. Hij was wederom positief verrast. Tijdens de eerste test had hij verteld dat hij graag wilde dat de spraakassistent automatisch begon met opnemen, maar nu kwam hij hierop terug. Toen ik vroeg waarom hij dit liever niet wilde, legde hij uit dat hij het niet fijn vond dat er een kans was dat de gebruiker niet weet dat de website aan het opnemen is. Om dit te voorkomen, stelde hij voor om een melding hiervan bovenaan de website te tonen. Zo blijft de website toch toegankelijk, omdat de gebruiker niet hoeft te klikken, maar kan hij/zij niet missen dat de microfoon aanstaat. Hier stemde hij mee in. Eric kwam verder nog met de onderstaande verbeterpunten en suggesties.
 
 - Instructies verduidelijken en wachttijd na spraakcommando's melden.
 - Meteen kopiëren na selecteren (optioneel, eventueel een checkbox van maken).
@@ -92,28 +102,34 @@ Tijdens de tweede test heb ik de eerste paar minuten niets gezegd, om de pijnpun
 **Code: [GitHub](https://github.com/lisannevvliet/erics-spraakassistent/tree/versie-3)**  
 **Live demo: [Heroku app](https://erics-spraakassistent-versie-3.herokuapp.com/)**
 
-- [ ] Automatisch sluiten? Hoe?
-    - [ ] Knoppen zijn geod genoeg, wel interessant
-- [ ] Gekopieerd en geselecteerd in pop-up?
-    - [ ] Overlay kan verslepen
-    - [ ] Wel in popup
-- [ ] Wat vind hij van de opnemen knop? 
-- [ ] Wat is zijn favoriete kleur? Hobbies? 
-    - [ ] Meerdere kleuren, groen en geel
-    - [ ] Rondjes rijden
-    - [ ] Lezen film kijken
-    - [ ] Muziek concerten
-    - [ ] Door bos rijden
-    - [ ] Light mode
-    - [ ] Dark mode in de avond
-- [ ] Nonsense? 
-- [ ] user scenario geschreven dat antwoord geeft op de 4 w-vragen: Who? What? How? en Why?
-- [ ] Geselecteerde tekst overschrijven.
-- [ ] Optioneel: "Volgende" en "vorige" bij "selecteren vanaf ... tot ..." efficiënter maken.
-- [ ] Ongedaan maken als optie
-- [ ] Wat als er een “tot” in de zin zit?
-- [ ] Scrollt naar beneden
-- [ ] “Kopieer” losstaand, niet geselecteerde tekst
-- [ ] Alles zonder handen
-- [ ] Tot en met ipv tot
-- [ ] Of aparte taal voor kopieerfucnties
+
+
+- Automatisch sluiten? Hoe?
+    - Knoppen zijn geod genoeg, wel interessant
+- Gekopieerd en geselecteerd in pop-up?
+    - Overlay kan verslepen
+    - Wel in popup
+- Wat vind hij van de opnemen knop? 
+- Wat is zijn favoriete kleur? Hobbies? 
+    - Meerdere kleuren, groen en geel
+    - Rondjes rijden
+    - Lezen film kijken
+    - Muziek concerten
+    - Door bos rijden
+    - Light mode
+    - Dark mode in de avond
+- Nonsense? 
+- user scenario geschreven dat antwoord geeft op de 4 w-vragen: Who? What? How? en Why?
+- Geselecteerde tekst overschrijven.
+- Optioneel: "Volgende" en "vorige" bij "selecteren vanaf ... tot ..." efficiënter maken.
+- Ongedaan maken als optie
+- Wat als er een “tot” in de zin zit?
+- Scrollt naar beneden
+- “Kopieer” losstaand, niet geselecteerde tekst
+- Alles zonder handen
+- Tot en met ipv tot
+- Of aparte taal voor kopieerfuncties
+
+<!-- Er is minimaal drie keer getest. Er is een verslaglegging van de tests gedaan waarin de test-opzet wordt behandeld en er is een duidelijke conclusie beschreven met do's en dont's over hoe je goed kan testen. -->
+
+<!-- Aan de hand van de tests wordt duidelijk gemaakt hoe deze hebben bijgedragen aan het verbeteren van het ontwerp of hoe dit een volgende keer beter of anders kan. -->
