@@ -159,12 +159,7 @@ function download() {
 }
 
 $("textarea").addEventListener("input", () => {
-    if ($("textarea").value == "") {
-        // Remove the value of textarea from the localStorage.
-        localStorage.removeItem("textarea")
-    } else {
-        save()
-    }
+    save()
 })
 
 $("#download").addEventListener("click", () => {
@@ -176,7 +171,8 @@ $("#reset").addEventListener("click", () => {
     // Fill the textarea with sample text.
     $("textarea").value = "Lorem Ipsum is slechts een proeftekst uit het drukkerij- en zetterijwezen. Lorem Ipsum is de standaard proeftekst in deze bedrijfstak sinds de 16e eeuw, toen een onbekende drukker een zethaak met letters nam en ze door elkaar husselde om een font-catalogus te maken. Het heeft niet alleen vijf eeuwen overleefd maar is ook, vrijwel onveranderd, overgenomen in elektronische letterzetting. Het is in de jaren '60 populair geworden met de introductie van Letraset vellen met Lorem Ipsum passages en meer recentelijk door desktop publishing software zoals Aldus PageMaker die versies van Lorem Ipsum bevatten."
 
-    save()
+    // Remove the value of textarea from the localStorage.
+    localStorage.removeItem("textarea")
 })
 
 $("input[type=\"checkbox\"]").addEventListener("change", (element) => {
@@ -205,8 +201,10 @@ $("#close").addEventListener("click", () => {
     localStorage.setItem("closed", true)
 })
 
-// Retrieve the value of the textarea from the localStorage and fill the textarea.
-$("textarea").value = localStorage.getItem("textarea")
+if (localStorage.getItem("textarea")) {
+    // Retrieve the value of the textarea from the localStorage and fill the textarea.
+    $("textarea").value = localStorage.getItem("textarea")
+}
 
 // Check if the instructions have been closed before, and don't show them if this is the case.
 if (localStorage.getItem("closed")) {
@@ -389,9 +387,6 @@ if ("webkitSpeechRecognition" in window) {
                 if (result.includes("leeg tekstveld") || result.includes("leeg tekst veld")) {
                     // Clear the textarea.
                     $("textarea").value = ""
-
-                    // Remove the value of textarea from the localStorage.
-                    localStorage.removeItem("textarea")
 
                     // Fill and show the pop-up.
                     popup("bin.png", "Tekstveld leeggemaakt.")
