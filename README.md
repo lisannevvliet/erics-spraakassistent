@@ -85,3 +85,34 @@ Tijdens de tweede test heb ik de eerste paar minuten niets gezegd, om de pijnpun
 - Mogelijk op te selecteren van ... tot ..., met ondersteuning voor "volgende" en "vorige".
 - Vermelden dat de website spraak opneemt bovenaan de pagina.
 - Spraakcommando's fail-proofen (optioneel).
+
+### Versie 3
+**Datum:**  12 mei 2022  
+**Code: [GitHub](https://github.com/lisannevvliet/erics-spraakassistent/tree/versie-3)**  
+**Live demo: [Heroku app](https://erics-spraakassistent-versie-3.herokuapp.com/)**
+
+- [ ] Automatisch sluiten? Hoe?
+    - [ ] Knoppen zijn geod genoeg, wel interessant
+- [ ] Gekopieerd en geselecteerd in pop-up?
+    - [ ] Overlay kan verslepen
+    - [ ] Wel in popup
+- [ ] Wat vind hij van de opnemen knop? 
+- [ ] Wat is zijn favoriete kleur? Hobbies? 
+    - [ ] Meerdere kleuren, groen en geel
+    - [ ] Rondjes rijden
+    - [ ] Lezen film kijken
+    - [ ] Muziek concerten
+    - [ ] Door bos rijden
+    - [ ] Light mode
+    - [ ] Dark mode in de avond
+- [ ] Nonsense? 
+- [ ] user scenario geschreven dat antwoord geeft op de 4 w-vragen: Who? What? How? en Why?
+- [ ] Geselecteerde tekst overschrijven.
+- [ ] Optioneel: "Volgende" en "vorige" bij "selecteren vanaf ... tot ..." efficiënter maken.
+- [ ] Ongedaan maken als optie
+- [ ] Wat als er een “tot” in de zin zit?
+- [ ] Scrollt naar beneden
+- [ ] “Kopieer” losstaand, niet geselecteerde tekst
+- [ ] Alles zonder handen
+- [ ] Tot en met ipv tot
+- [ ] Of aparte taal voor kopieerfucnties
