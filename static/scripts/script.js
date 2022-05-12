@@ -158,6 +158,14 @@ function download() {
 	URL.revokeObjectURL(link.href)
 }
 
+function reset() {
+    // Fill the textarea with sample text.
+    $("textarea").value = "Lorem Ipsum is slechts een proeftekst uit het drukkerij- en zetterijwezen. Lorem Ipsum is de standaard proeftekst in deze bedrijfstak sinds de 16e eeuw, toen een onbekende drukker een zethaak met letters nam en ze door elkaar husselde om een font-catalogus te maken. Het heeft niet alleen vijf eeuwen overleefd maar is ook, vrijwel onveranderd, overgenomen in elektronische letterzetting. Het is in de jaren '60 populair geworden met de introductie van Letraset vellen met Lorem Ipsum passages en meer recentelijk door desktop publishing software zoals Aldus PageMaker die versies van Lorem Ipsum bevatten."
+
+    // Remove the value of textarea from the localStorage.
+    localStorage.removeItem("textarea")
+}
+
 $("textarea").addEventListener("input", () => {
     save()
 })
@@ -168,11 +176,7 @@ $("#download").addEventListener("click", () => {
 })
 
 $("#reset").addEventListener("click", () => {
-    // Fill the textarea with sample text.
-    $("textarea").value = "Lorem Ipsum is slechts een proeftekst uit het drukkerij- en zetterijwezen. Lorem Ipsum is de standaard proeftekst in deze bedrijfstak sinds de 16e eeuw, toen een onbekende drukker een zethaak met letters nam en ze door elkaar husselde om een font-catalogus te maken. Het heeft niet alleen vijf eeuwen overleefd maar is ook, vrijwel onveranderd, overgenomen in elektronische letterzetting. Het is in de jaren '60 populair geworden met de introductie van Letraset vellen met Lorem Ipsum passages en meer recentelijk door desktop publishing software zoals Aldus PageMaker die versies van Lorem Ipsum bevatten."
-
-    // Remove the value of textarea from the localStorage.
-    localStorage.removeItem("textarea")
+    reset()
 })
 
 $("input[type=\"checkbox\"]").addEventListener("change", (element) => {
@@ -360,6 +364,15 @@ if ("webkitSpeechRecognition" in window) {
                     save()
                 }
 
+                // Check if the sentence "leeg tekstveld" is said.
+                if (result.includes("leeg tekstveld") || result.includes("leeg tekst veld")) {
+                    // Clear the textarea.
+                    $("textarea").value = ""
+
+                    // Fill and show the pop-up.
+                    popup("bin.png", "Tekstveld leeggemaakt.")
+                }
+
                 // Check if the word "schrijf" is said.
                 if (result.includes("schrijf ")) {
                     // Cut the string after the write command.
@@ -383,13 +396,12 @@ if ("webkitSpeechRecognition" in window) {
                     popup("download.png", "Tekstveld gedownload.")
                 }
 
-                // Check if the sentence "leeg tekstveld" is said.
-                if (result.includes("leeg tekstveld") || result.includes("leeg tekst veld")) {
-                    // Clear the textarea.
-                    $("textarea").value = ""
+                // Check if the sentence "reset tekstveld" is said.
+                if (result.includes("reset tekstveld") || result.includes("reset tekst veld")) {
+                    reset()
 
                     // Fill and show the pop-up.
-                    popup("bin.png", "Tekstveld leeggemaakt.")
+                    popup("undo.png", "Tekstveld gereset.")
                 }
 
                 // Check if the word "Eric" is said.
@@ -404,7 +416,7 @@ if ("webkitSpeechRecognition" in window) {
                 }
 
                 // Check if any of the voice commands are said.
-                if (!(result.includes("selecteer ") || result.includes("volgende") || result.includes("vorige") || result.includes("kopieer ") || result.includes("plak") || result.includes("schrijf ") || result.includes("download tekstveld") || result.includes("download tekst veld") || result.includes("leeg tekstveld") || result.includes("leeg tekst veld") || result.includes("Eric") || result.includes("Erik"))) {
+                if (!(result.includes("selecteer ") || result.includes("volgende") || result.includes("vorige") || result.includes("kopieer ") || result.includes("leeg tekstveld") || result.includes("leeg tekst veld") || result.includes("plak") || result.includes("schrijf ") || result.includes("download tekstveld") || result.includes("download tekst veld") || result.includes("reset tekstveld") || result.includes("reset tekst veld") || result.includes("Eric") || result.includes("Erik"))) {
                     // Fill and show the pop-up.
                     popup("warning.png", "Stemcommando onduidelijk.")
                 }
