@@ -58,7 +58,7 @@ body {
     width: 200px;
     color: white;
     font-weight: bold;
-    background: rgba(139, 0, 0, 0.75);
+    background: darkred;
     border-radius: 10px;
     display: flex;
     justify-content: center;
@@ -135,6 +135,10 @@ li {
 li span {
     color: gray;
     font-style: italic;
+}
+
+#copy-on-select, #language {
+    margin-bottom: 16px;
 }
 
 #pop-up {

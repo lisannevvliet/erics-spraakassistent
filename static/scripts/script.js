@@ -1,3 +1,8 @@
+let results = []
+let index = 0
+let language = "nl-NL"
+let copy_on_select = false
+
 function $(element) {
     // Return the Element object of the corresponding element.
     return document.querySelector(element)
@@ -16,9 +21,6 @@ function popup(image, string) {
     }, 3000)
 }
 
-let results = []
-let index = 0
-
 function select() {
     // Check if the specified result exists.
     if (results[index]) {
@@ -33,11 +35,27 @@ function select() {
         } else if (document.selection && document.selection.createRange) {
             // IE branch.
             $("textarea").select()
-            var range = document.selection.createRange()
+            let range = document.selection.createRange()
             range.collapse(true)
             range.moveEnd("character", results[index][1])
             range.moveStart("character", results[index][0])
             range.select()
+        }
+
+        if (copy_on_select) {
+            let text
+
+            // Get the selected text on the website.
+            // https://stackoverflow.com/questions/5379120/get-the-highlighted-selected-text
+            if (window.getSelection) {
+                text = window.getSelection().toString()
+            // Support for Internet Explorer 9 and below.
+            } else if (document.selection && document.selection.type != "Control") {
+                text = document.selection.createRange().text
+            }
+
+            // Copy the selected text.
+            navigator.clipboard.writeText(text)
         }
     }
 }
@@ -141,6 +159,15 @@ $("#download").addEventListener("click", () => {
     download()
 })
 
+$("#copy-on-select").addEventListener("change", (element) => {
+    // Check if the checkbox is checked.
+    if (element.target.checked) {
+        copy_on_select = true
+    } else {
+        copy_on_select = false
+    }
+})
+
 // Check if speech recognition is supported. If not, log an error message.
 // https://blog.zolomohan.com/speech-recognition-in-javascript
 if ("webkitSpeechRecognition" in window) {
@@ -152,7 +179,7 @@ if ("webkitSpeechRecognition" in window) {
     // Enable interim results.
     speechRecognition.interimResults = true
     // Set the language to Dutch.
-    speechRecognition.lang = "nl-NL"
+    speechRecognition.lang = language
 
     speechRecognition.onstart = () => {
         // Make the record button red.
@@ -202,9 +229,9 @@ if ("webkitSpeechRecognition" in window) {
                     // Check if the word "vanaf" is said.
                     if (result.includes("vanaf ")) {
                         find(result, ["vanaf"])
-                    // Check if the words "van" and "tot" are said.
-                    } else if (result.includes("van ") && result.includes("tot ")) {
-                        find(result, ["van", "tot"])
+                    // Check if the word "tot" is said.
+                    } else if (result.includes("tot ")) {
+                        find(result, ["selecteer", "tot"])
                     } else {
                         find(result, ["selecteer"])
                     }
@@ -287,15 +314,6 @@ if ("webkitSpeechRecognition" in window) {
                     popup("pen.png", `${string} geschreven.`)
                 }
 
-                // Check if the sentence "maak het tekstveld leeg" is said.
-                if (result.includes("maak het tekstveld leeg") || result.includes("maak het tekst veld leeg")) {
-                    // Clear the textarea.
-                    $("textarea").value = ""
-
-                    // Fill and show the pop-up.
-                    popup("bin.png", "Tekstveld leeggemaakt.")
-                }
-
                 // Check if the sentence "download tekstveld" is said.
                 if (result.includes("download tekstveld") || result.includes("download tekst veld")) {
                     // Download the contents of textarea as a text file.
@@ -305,8 +323,17 @@ if ("webkitSpeechRecognition" in window) {
                     popup("download.png", "Tekstveld gedownload.")
                 }
 
+                // Check if the sentence "leeg tekstveld" is said.
+                if (result.includes("leeg tekstveld") || result.includes("leeg tekst veld")) {
+                    // Clear the textarea.
+                    $("textarea").value = ""
+
+                    // Fill and show the pop-up.
+                    popup("bin.png", "Tekstveld leeggemaakt.")
+                }
+
                 // Check if any of the voice commands are said.
-                if (!(result.includes("selecteer ") || result.includes("volgende") || result.includes("vorige") || result.includes("kopieer ") || result.includes("plak") || result.includes("schrijf ") || result.includes("maak het tekstveld leeg") || result.includes("maak het tekst veld leeg") || result.includes("download tekstveld") || result.includes("download tekst veld"))) {
+                if (!(result.includes("selecteer ") || result.includes("volgende") || result.includes("vorige") || result.includes("kopieer ") || result.includes("plak") || result.includes("schrijf ") || result.includes("download tekstveld") || result.includes("download tekst veld") || result.includes("leeg tekstveld") || result.includes("leeg tekst veld"))) {
                     // Fill and show the pop-up.
                     popup("warning.png", "Stemcommando onduidelijk.")
                 }
@@ -334,6 +361,17 @@ if ("webkitSpeechRecognition" in window) {
             speechRecognition.stop()
         }
     }
+
+    $("#language").addEventListener("change", () => {
+        // Change the language.
+        language = $("#language").value
+
+        // Restart the speech recognition.
+        speechRecognition.stop()
+        setTimeout(() => {
+            speechRecognition.start()
+        }, 400)
+    })
 } else {
     console.log("Spraakherkenning niet beschikbaar.")
 }

@@ -7,6 +7,11 @@
         <p>Microfoon aan</p>
     </div>
 </div>
+<label for="language">Taal: </label>
+<select id="language">
+  <option value="nl-NL">Nederlands</option>
+  <option value="en-US">Engels</option>
+</select>
 <h2>Transcript</h2>
 <div id="transcript">
     <span id="final"></span>
@@ -19,16 +24,18 @@
 <ul>
     <li>"Selecteer <span>woord/zin</span>"</li>
     <li>"Selecteer vanaf <span>woord/zin</span>"</li>
-    <li>"Selecteer van <span>woord/zin</span> tot <span>woord/zin</span>"</li>
+    <li>"Selecteer <span>woord/zin</span> tot <span>woord/zin</span>"</li>
     <li>"Volgende"</li>
     <li>"Vorige"</li>
     <li>"Kopieer geselecteerde tekst</span>"</li>
     <li>"Kopieer <span>woord/zin</span>"</li>
     <li>"Plak"</li>
     <li>"Schrijf <span>woord/zin</span>"</li>
-    <li>"Maak het tekstveld leeg"</li>
     <li>"Download tekstveld"</li>
+    <li>"Leeg tekstveld"</li>
 </ul>
+<input type="checkbox" id="copy-on-select">
+<label for="copy-on-select">Automatisch geselecteerde tekst kopiëren</label><br>
 <div id="pop-up">
     <div>
         <p></p>
