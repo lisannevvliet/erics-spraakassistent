@@ -10,11 +10,15 @@ body {
     margin: 0 auto;
 }
 
-#record-alert {
+.flex {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#record-alert {
     margin-top: 25px;
+    margin-bottom: 16px;
 }
 
 #record {
@@ -60,9 +64,6 @@ body {
     font-weight: bold;
     background: darkred;
     border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     position: relative;
     left: 50px;
     opacity: 0;
@@ -78,6 +79,18 @@ body {
 #alert p {
     position: relative;
     left: 20px;
+}
+
+#language {
+    border: none;
+    border-radius: 10px;
+    padding: 8px;
+    margin-left: 8px;
+    cursor: pointer;
+}
+
+.flex label {
+    font-weight: bold;
 }
 
 h2 {
@@ -106,7 +119,7 @@ textarea {
     padding: 10px;
 }
 
-#download {
+#download, #reset {
     font-weight: bold;
     background: white;
     transition: .3s ease-in-out;
@@ -123,6 +136,15 @@ textarea {
     transition: .3s ease-in-out;
 }
 
+#reset {
+    color: red;
+}
+
+#reset:hover {
+    color: white;
+    background: red;
+}
+
 ul {
     list-style-type: none;
     padding-left: 0;
@@ -137,7 +159,7 @@ li span {
     font-style: italic;
 }
 
-#copy-on-select, #language {
+#copy-on-select {
     margin-bottom: 16px;
 }
 
