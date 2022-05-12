@@ -368,20 +368,6 @@ if ("webkitSpeechRecognition" in window) {
                     popup("copy.png", `"${text}" gekopieerd.`)
                 }
 
-                // Check if the word "plak" is said.
-                if (result.includes("plak")) {
-                    // https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Interact_with_the_clipboard#reading_from_the_clipboard
-                    navigator.clipboard.readText().then((text) => {
-                        // Fill the textarea with the clipboard text.
-                        $("textarea").value = text
-                
-                        // Fill and show the pop-up.
-                        popup("clipboard.png", `"${text}" geplakt.`)
-                    })
-
-                    save()
-                }
-
                 // Check if the sentence "leeg tekstveld" is said.
                 if (result.includes("leeg tekstveld") || result.includes("leeg tekst veld")) {
                     // Clear the textarea.
@@ -391,12 +377,26 @@ if ("webkitSpeechRecognition" in window) {
                     popup("bin.png", "Tekstveld leeggemaakt.")
                 }
 
+                // Check if the word "plak" is said.
+                if (result.includes("plak")) {
+                    // https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Interact_with_the_clipboard#reading_from_the_clipboard
+                    navigator.clipboard.readText().then((text) => {
+                        // Add the clipboard text to the textarea.
+                        $("textarea").value += text
+                
+                        // Fill and show the pop-up.
+                        popup("clipboard.png", `"${text}" geplakt.`)
+                    })
+
+                    save()
+                }
+
                 // Check if the word "schrijf" is said.
                 if (result.includes("schrijf ")) {
                     // Cut the string after the write command.
                     string = result.substring(result.indexOf("schrijf") + "schrijf".length + 1)
 
-                    // Fill the textarea.
+                    // Add the string to the textarea.
                     $("textarea").value += string
 
                     save()
