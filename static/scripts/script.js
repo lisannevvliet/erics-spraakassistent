@@ -212,8 +212,16 @@ if ("webkitSpeechRecognition" in window) {
     speechRecognition.continuous = true
     // Enable interim results.
     speechRecognition.interimResults = true
-    // Set the language to Dutch.
-    speechRecognition.lang = "nl-NL"
+    
+    // Retrieve the value of the language from the localStorage and set the language accordingly.
+    if (localStorage.getItem("language") == "en-US") {
+        speechRecognition.lang = "en-US"
+
+        // Change the language in the dropdown.
+        $("#language").value = "en-US"
+    } else {
+        speechRecognition.lang = "nl-NL"
+    }
 
     speechRecognition.onstart = () => {
         // Make the record button red.
@@ -406,6 +414,9 @@ if ("webkitSpeechRecognition" in window) {
     $("#language").addEventListener("change", () => {
         // Change the language.
         speechRecognition.lang = $("#language").value
+
+        // Save the language in the localStorage.
+        localStorage.setItem("language", $("#language").value)
 
         // Restart the speech recognition.
         speechRecognition.stop()
