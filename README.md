@@ -11,6 +11,7 @@
 - [Testverslagen](#testverslagen)
   - [Versie 1](#versie-1)
   - [Versie 2](#versie-2)
+  - [Versie 3](#versie-3)
 
 ## Beschrijving
 <!-- ☝️ replace this description with a description of your own work -->
