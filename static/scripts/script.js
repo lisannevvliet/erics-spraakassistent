@@ -127,9 +127,17 @@ function find(result, command) {
 
     // Fill and show the pop-up.
     if (command.length == 1) {
-        popup("search.png", `"${string}" ${results.length} keer gevonden.`)
+        if (copy_on_select && results.length > 0) {
+            popup("search.png", `"${string}" ${results.length} keer gevonden. 1&#7497; resultaat gekopieërd.`)
+        } else {
+            popup("search.png", `"${string}" ${results.length} keer gevonden.`)
+        }
     } else {
-        popup("search.png", `"${string}" tot "${string_to}" ${results.length} keer gevonden.`)
+        if (copy_on_select && results.length > 0) {
+            popup("search.png", `"${string}" tot "${string_to}" ${results.length} keer gevonden. 1&#7497; resultaat gekopieërd.`)
+        } else {
+            popup("search.png", `"${string}" tot "${string_to}" ${results.length} keer gevonden.`)
+        }
     }
     
     // Set the index to 0.
@@ -217,6 +225,8 @@ if (localStorage.getItem("closed")) {
 
 // Check if the checkbox should be checked in the localStorage, and do so if this is the case.
 if (localStorage.getItem("copy-on-select")) {
+    copy_on_select = true
+    
     $("input[type=\"checkbox\"]").checked = true
 }
 
@@ -308,7 +318,11 @@ if ("webkitSpeechRecognition" in window) {
                     select()
 
                     // Fill and show the pop-up.
-                    popup("cursor.png", `${index + 1}&#7497; resultaat geselecteerd (van de ${results.length}).`)
+                    if (copy_on_select) {
+                        popup("cursor.png", `${index + 1}&#7497; resultaat geselecteerd en gekopieërd (van de ${results.length}).`)
+                    } else {
+                        popup("cursor.png", `${index + 1}&#7497; resultaat geselecteerd (van de ${results.length}).`)
+                    }
                 }
 
                 // Check if the word "vorige" is said.
@@ -322,7 +336,11 @@ if ("webkitSpeechRecognition" in window) {
                     select()
 
                     // Fill and show the pop-up.
-                    popup("cursor.png", `${index + 1}&#7497; resultaat geselecteerd (van de ${results.length}).`)
+                    if (copy_on_select) {
+                        popup("cursor.png", `${index + 1}&#7497; resultaat geselecteerd en gekopieërd (van de ${results.length}).`)
+                    } else {
+                        popup("cursor.png", `${index + 1}&#7497; resultaat geselecteerd (van de ${results.length}).`)
+                    }
                 }
 
                 // Check if the word "kopieer" is said.
