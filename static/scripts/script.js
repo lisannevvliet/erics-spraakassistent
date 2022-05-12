@@ -201,15 +201,15 @@ $("#instructions").addEventListener("click", () => {
 $("#close").addEventListener("click", () => {
     $("#overlay").classList.add("hide")
 
-    // Add "instructions" to the localStorage, so that the instructions only open automatically on the first visit.
-    localStorage.setItem("instructions", "closed")
+    // Add "closed" to the localStorage, so that the instructions only open automatically on the first visit.
+    localStorage.setItem("closed", true)
 })
 
 // Retrieve the value of the textarea from the localStorage and fill the textarea.
 $("textarea").value = localStorage.getItem("textarea")
 
 // Check if the instructions have been closed before, and don't show them if this is the case.
-if (localStorage.getItem("instructions") == "closed") {
+if (localStorage.getItem("closed")) {
     $("#overlay").classList.add("hide")
 }
 
