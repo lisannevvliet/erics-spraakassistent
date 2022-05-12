@@ -140,6 +140,11 @@ function find(result, command) {
     select()
 }
 
+function save() {
+    // Save the value of the textarea in the localStorage.
+    localStorage.setItem("textarea", $("textarea").value)
+}
+
 // https://codepen.io/pedro404/pen/KKaaovd?editors=1010
 function download() {
     const link = document.createElement("a")
@@ -154,6 +159,10 @@ function download() {
 	URL.revokeObjectURL(link.href)
 }
 
+$("textarea").addEventListener("input", () => {
+    save()
+})
+
 $("#download").addEventListener("click", () => {
     // Download the contents of textarea as a text file.
     download()
@@ -167,6 +176,9 @@ $("#copy-on-select").addEventListener("change", (element) => {
         copy_on_select = false
     }
 })
+
+// Retrieve the value of the textarea from the localStorage and fill the textarea.
+$("textarea").value = localStorage.getItem("textarea")
 
 // Check if speech recognition is supported. If not, log an error message.
 // https://blog.zolomohan.com/speech-recognition-in-javascript
@@ -300,6 +312,8 @@ if ("webkitSpeechRecognition" in window) {
                         // Fill and show the pop-up.
                         popup("clipboard.png", `"${text}" geplakt.`)
                     })
+
+                    save()
                 }
 
                 // Check if the word "schrijf" is said.
@@ -309,6 +323,8 @@ if ("webkitSpeechRecognition" in window) {
 
                     // Fill the textarea.
                     $("textarea").value += string
+
+                    save()
 
                     // Fill and show the pop-up.
                     popup("pen.png", `${string} geschreven.`)
@@ -327,6 +343,8 @@ if ("webkitSpeechRecognition" in window) {
                 if (result.includes("leeg tekstveld") || result.includes("leeg tekst veld")) {
                     // Clear the textarea.
                     $("textarea").value = ""
+
+                    save()
 
                     // Fill and show the pop-up.
                     popup("bin.png", "Tekstveld leeggemaakt.")
