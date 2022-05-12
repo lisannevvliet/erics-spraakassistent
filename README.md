@@ -46,9 +46,7 @@ Een kennis van Eric beschikt niet over de fijne motoriek die nodig is om gemakke
 <!-- Add a nice poster image here at the end of the week, showing off your shiny frontend 📸 -->
 
 ## Gebruikershandleiding en functies
-...
-
-<!-- ...but how does one use this project? What are its features 🤔 -->
+Na het vragen om toestemming om de microfoon te gebruiken, begint Eric's Spraakassistent automatisch met opnemen. De tussentijdse resultaten van de spraakassistent worden als grijze tekst getoond in het transcript. Na een aantal seconden heeft de spraakassistent besloten wat er daadwerkelijk gezegd is, kleurt de tekst zwart en wordt het spraakcommando uitgevoerd. De tekst in het tekstveld kan zowel met spraakcommando's worden gemanipuleerd als handmatig. Alle mogelijke spraakcommando's staan in een lijst op de pagina. Tijdens het eerste bezoek worden er een aantal instructies getoond, die kunnen worden weggeklikt en altijd nog kunnen worden bekeken door middel van een knop links onderin de pagina. Het is mogelijk om de taal waarin gesproken wordt aan te passen, zodat het transcript accurater wordt. Daarnaast kan er aangevinkt worden dat de geselecteerde tekst automatisch gekopieërd wordt. Deze twee opties, evenals de tekst in het tekstveld en of de instructies getoond moeten worden (alleen bij het eerste bezoek), worden opgeslagen in de localStorage, zodat ze bij een verversing van de pagina niet verloren gaan.
 
 ## Live demo
 https://erics-spraakassistent.herokuapp.com/
@@ -123,7 +121,7 @@ Voor de derde test ga ik alle bovenstaande taken uitvoeren. Daarnaast ga ik grot
 **Code: [GitHub](https://github.com/lisannevvliet/erics-spraakassistent/tree/versie-3)**  
 **Live demo: [Heroku app](https://erics-spraakassistent-versie-3.herokuapp.com/)**
 
-...
+Tijdens de derde test begon ik met het laten zien aan Eric van de vorige twee versies, om zijn geheugen op te frissen. Vervolgens liet ik zien wat de huidige stand van zaken is, en welke feedback ik allemaal in deze derde versie heb verwerkt. Hij wist inmiddels dat de spraakcommando's niet gecombineerd en helemaal juist uitgesproken moeten worden, om het gewenste resultaat te krijgen. Na mijn uitleg liet ik hem de spraakassistent gebruiken, en dit ging verbazingwekkend goed. Zowel hij als Vasilis waren onder de indruk van de technische mogelijkheden ervan. De onderstaande vragen had ik voorbereid, met zijn antwoorden eronder vermeld.
 
 - Is het vervelend voor de kennis van Eric dat knoppen handmatig moeten worden ingedrukt, en niet via spraakcommando's bestuurd kunnen worden?
   - Nee, voor haar niet. Maar een website die volledig met spraak kan worden bestuurd is wel een interessant concept.
@@ -161,7 +159,7 @@ Voor het eindproduct ga ik het kleurenpalet aanpassen naar Eric's favoriete kleu
 Later ga ik eventueel "volgende" en "vorige" bij "selecteer ... tot ..." efficiënter maken, de website volledig bestuurbaar met spraak maken, de spraakcommando's versleepbaar maken, 's avonds automatisch veranderen naar dark mode, geselecteerde tekst aanpasbaar maken, een "maak ongedaan" optie toevoegen en "tot" vervangen door "tot en met".
 
 ### Conclusie
-...
+De testen hebben ontzettend bijgedragen aan het verbeteren van het ontwerp, aangezien ik minstens drie kwart van mijn aanpassingen heb gebaseerd op de feedback van Eric. Soms verschilde zijn feedback van keer tot keer of was ik het er zelf niet mee eens. Meestal negeerde ik het dan of veranderde ik iets kleins en keek ik of hij het de week erna nog miste. Als ik er echt nieuwsgierig naar was, vroeg ik hier specifiek naar. Een volgende keer zou ik minder voordoen en uitleg geven vooraf, zodat de testresultaten breder toepasbaar zijn (bezoekers van de website krijgen immers ook geen voorbeeld en/of uitleg). Daarnaast zou ik de tester vragen om hardop te denken, dat was ik namelijk de afgelopen weken vergeten.
 
-<!-- Er is minimaal drie keer getest. Er is een verslaglegging van de tests gedaan waarin de test-opzet wordt behandeld en er is een duidelijke conclusie beschreven met do's en dont's over hoe je goed kan testen. -->
-<!-- Aan de hand van de tests wordt duidelijk gemaakt hoe deze hebben bijgedragen aan het verbeteren van het ontwerp of hoe dit een volgende keer beter of anders kan. -->
+**Do's en don't's**  
+In mijn ervaring is het belangrijk om voorafgaand aan de test vragen op te stellen en/of vast te stellen wat belangrijk is om op te letten. Ook het goed voorbereiden van de test (website op Heroku hebben staan, notitieboekje klaar hebben liggen, etc.) is van waarde, want zo voelt de tester dat jij zijn/haar tijd respecteert en bespaar jij zelf ook tijd. Als de tester zelf een oplossing voor een probleem voorstelt, is het nuttig om door te vragen naar het onderliggende probleem, in plaats van deze oplossing klakkeloos over te nemen. Wat écht niet kan, is de tester het gevoel geven dat hij/zij iets fout doet. Als er iets fout gaat, is dit namelijk meestal de fout van het ontwerp, niet van de tester.
