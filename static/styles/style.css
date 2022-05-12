@@ -60,9 +60,8 @@ body {
 #alert {
     height: 50px;
     width: 200px;
-    color: white;
     font-weight: bold;
-    background: darkred;
+    background: white;
     border-radius: 10px;
     position: relative;
     left: 50px;
@@ -86,6 +85,10 @@ body {
     border-radius: 10px;
     padding: 8px;
     margin-left: 8px;
+    cursor: pointer;
+}
+
+label {
     cursor: pointer;
 }
 
@@ -159,8 +162,30 @@ li span {
     font-style: italic;
 }
 
-#copy-on-select {
-    margin-bottom: 16px;
+input[type="checkbox"] {
+    width: 1.15em;
+    height: 1.15em;
+    appearance: none; 
+    background: white;
+    border-radius: 0.15em;
+    display: inline-grid;
+    place-content: center;
+    transform: translateY(-0.075em);
+    margin-bottom: 32px;
+    cursor: pointer;
+}
+  
+input[type="checkbox"]::before {
+    width: 0.65em;
+    height: 0.65em;
+    background: black;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+    opacity: 0;
+    content: "";
+}
+  
+input[type="checkbox"]:checked::before {
+    opacity: 1;
 }
 
 #pop-up {

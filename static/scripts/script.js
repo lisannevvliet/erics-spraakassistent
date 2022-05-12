@@ -174,7 +174,7 @@ $("#reset").addEventListener("click", () => {
     save()
 })
 
-$("#copy-on-select").addEventListener("change", (element) => {
+$("input[type=\"checkbox\"]").addEventListener("change", (element) => {
     // Check if the checkbox is checked.
     if (element.target.checked) {
         copy_on_select = true
