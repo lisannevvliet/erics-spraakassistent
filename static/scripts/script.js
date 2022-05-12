@@ -183,8 +183,24 @@ $("input[type=\"checkbox\"]").addEventListener("change", (element) => {
     }
 })
 
+$("#instructions").addEventListener("click", () => {
+    $("#overlay").classList.remove("hide")
+})
+
+$("#close").addEventListener("click", () => {
+    $("#overlay").classList.add("hide")
+
+    // Add "instructions" to the localStorage, so that the instructions only open automatically on the first visit.
+    localStorage.setItem("instructions", "closed")
+})
+
 // Retrieve the value of the textarea from the localStorage and fill the textarea.
 $("textarea").value = localStorage.getItem("textarea")
+
+// Check if the instructions have been closed before, and don't show them if this is the case.
+if (localStorage.getItem("instructions") == "closed") {
+    $("#overlay").classList.add("hide")
+}
 
 // Check if speech recognition is supported. If not, log an error message.
 // https://blog.zolomohan.com/speech-recognition-in-javascript
@@ -386,6 +402,7 @@ if ("webkitSpeechRecognition" in window) {
         }
     }
 
+    // https://stackoverflow.com/questions/42895760/how-to-stop-and-restart-web-speech-api-correctly
     $("#language").addEventListener("change", () => {
         // Change the language.
         speechRecognition.lang = $("#language").value
