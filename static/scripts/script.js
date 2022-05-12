@@ -397,8 +397,19 @@ if ("webkitSpeechRecognition" in window) {
                     popup("bin.png", "Tekstveld leeggemaakt.")
                 }
 
+                // Check if the word "Eric" is said.
+                if (result.includes("Eric") || result.includes("Erik")) {
+                    // Play the wheelchair animation.
+                    $("#wheelchair").classList.add("play")
+
+                    // Remove the wheelchair animation after 3 seconds (so that it can be played again later).
+                    setTimeout(() => {
+                        $("#wheelchair").classList.remove("play")
+                    }, 3000)
+                }
+
                 // Check if any of the voice commands are said.
-                if (!(result.includes("selecteer ") || result.includes("volgende") || result.includes("vorige") || result.includes("kopieer ") || result.includes("plak") || result.includes("schrijf ") || result.includes("download tekstveld") || result.includes("download tekst veld") || result.includes("leeg tekstveld") || result.includes("leeg tekst veld"))) {
+                if (!(result.includes("selecteer ") || result.includes("volgende") || result.includes("vorige") || result.includes("kopieer ") || result.includes("plak") || result.includes("schrijf ") || result.includes("download tekstveld") || result.includes("download tekst veld") || result.includes("leeg tekstveld") || result.includes("leeg tekst veld") || result.includes("Eric") || result.includes("Erik"))) {
                     // Fill and show the pop-up.
                     popup("warning.png", "Stemcommando onduidelijk.")
                 }
