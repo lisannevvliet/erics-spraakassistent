@@ -24,16 +24,19 @@ Een kennis van Eric beschikt niet over de fijne motoriek die nodig is om gemakke
 
 ### Exclusive Design Principles
 **Study situation**  
+- 
 ...
 
 **Prioritise identity**  
-...
+- Eric's naam in de titel.
+- Kleurenpalet bestaat uit Eric's favoriete kleuren: groen en geel.
 
 **Ignore conventions**  
+- Automatisch starten met opnemen zodra de website wordt geopend.
 ...
 
 **Add nonsense**  
-...
+- Rolstoel die met een vaart onderaan het scherm rijdt zodra de naam "Eric" wordt genoemd.
 
 <!-- Student laat zien hoe de Exclusive Design Principles zijn toegepast in het ontwerp. De principes study situation, prioritise identity, ignore conventions en add nonsense zijn goed uitgelegd. Aan de hand van de principes wordt duidelijk gemaakt hoe deze hebben bijgedragen aan het verbeteren van het ontwerp. -->
 
@@ -146,17 +149,19 @@ Voor de derde test ga ik alle bovenstaande taken uitvoeren. Daarnaast ga ik grot
 - Is de functie om geselecteerde tekst aan te passen belangrijk?
   - Ja, dat zou de website nóg bruikbaarder maken.
 
+- Is het nodig dat in de pop-up staat dat de geselecteerde tekst gekopieerd is als de checkbox aanstaat?
+  - Ja.
+
 - Zijn er nog overige opmerkingen?
   - Het zou nog handiger zijn als er ook een "maak ongedaan" optie is.
   - Als er "tot" in het woord/de zin zit die geselecteerd moet worden gaat het niet goed. Alternatief: "tot" vervangen door "tot en met", dat vermindert de kans hierop. Een eigen taal voor de spraakcommando's zou dit probleem ook oplossen, maar hierbij is de leercurve te groot.
 
-Voor het eindproduct ga ik het kleurenpalet aanpassen naar Eric's favoriete kleuren: groen en geel, een rolstoel langs laten rijden onderaan het scherm, geselecteerde tekst aanpasbaar maken.
+Voor het eindproduct ga ik het kleurenpalet aanpassen naar Eric's favoriete kleuren: groen en geel, een rolstoel langs laten rijden onderaan het scherm en in de pop-up zetten dat de geselecteerde tekst gekopieerd is als de checkbox aanstaat.
 
-Later ga ik eventueel "volgende" en "vorige" bij "selecteer ... tot ..." efficiënter maken, de website volledig bestuurbaar met spraak maken, de spraakcommando's versleepbaar maken, 's avonds automatisch veranderen naar dark mode, een "maak ongedaan" optie toevoegen en "tot" vervangen door "tot en met".
+Later ga ik eventueel "volgende" en "vorige" bij "selecteer ... tot ..." efficiënter maken, de website volledig bestuurbaar met spraak maken, de spraakcommando's versleepbaar maken, 's avonds automatisch veranderen naar dark mode, geselecteerde tekst aanpasbaar maken, een "maak ongedaan" optie toevoegen en "tot" vervangen door "tot en met".
 
 ### Conclusie
 ...
 
 <!-- Er is minimaal drie keer getest. Er is een verslaglegging van de tests gedaan waarin de test-opzet wordt behandeld en er is een duidelijke conclusie beschreven met do's en dont's over hoe je goed kan testen. -->
-
 <!-- Aan de hand van de tests wordt duidelijk gemaakt hoe deze hebben bijgedragen aan het verbeteren van het ontwerp of hoe dit een volgende keer beter of anders kan. -->
