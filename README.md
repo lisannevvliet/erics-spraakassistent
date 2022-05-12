@@ -24,21 +24,28 @@ Een kennis van Eric beschikt niet over de fijne motoriek die nodig is om gemakke
 
 ### Exclusive Design Principles
 **Study situation**  
-- 
-...
+Study situation gaat over het bestuderen van de situatie van één specifiek persoon, zoals de lichamelijke mogelijkheden en obstakels.
+
+- Zo klein mogelijk aantal benodigde klikken.
 
 **Prioritise identity**  
+Prioritise identity gaat over het personaliseren van het product voor één specifiek persoon, door aandachtig te luisteren naar de persoon in kwestie en diegene beter te leren kennen.
+
 - Eric's naam in de titel.
+- Light mode in plaats van dark mode.
 - Kleurenpalet bestaat uit Eric's favoriete kleuren: groen en geel.
+- Rolstoel die met een vaart onderaan het scherm langsrijdt zodra de naam "Eric" wordt genoemd.
 
 **Ignore conventions**  
+Ignore conventions gaat over het loslaten van theoretische ontwerpregels, en het prioriteren van een ontwerp dat voor één specifiek persoon het beste werkt.
+
 - Automatisch starten met opnemen zodra de website wordt geopend.
-...
+- Niet automatisch stoppen met opnemen na verloop van tijd.
 
 **Add nonsense**  
-- Rolstoel die met een vaart onderaan het scherm rijdt zodra de naam "Eric" wordt genoemd.
+Ignore conventions gaat over het toevoegen van (in het eerste opzicht) nutteloze functies, als open deur voor nieuwe inzichten. Of simpelweg omdat het leuk is.
 
-<!-- Student laat zien hoe de Exclusive Design Principles zijn toegepast in het ontwerp. De principes study situation, prioritise identity, ignore conventions en add nonsense zijn goed uitgelegd. Aan de hand van de principes wordt duidelijk gemaakt hoe deze hebben bijgedragen aan het verbeteren van het ontwerp. -->
+- Rolstoel die met een vaart onderaan het scherm langsrijdt zodra de naam "Eric" wordt genoemd.
 
 ## Poster
 ...
