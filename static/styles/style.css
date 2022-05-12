@@ -173,7 +173,6 @@ input[type="checkbox"] {
     display: inline-grid;
     place-content: center;
     transform: translateY(-0.075em);
-    margin-top: 32px;
     margin-bottom: 32px;
     cursor: pointer;
 }
@@ -307,10 +306,6 @@ a {
 #close:hover {
     color: darkcyan;
     transition: color .3s ease-in-out;
-}
-
-h3 {
-    margin-bottom: 0;
 }
 
 /* Laptop */
