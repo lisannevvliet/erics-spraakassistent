@@ -159,7 +159,12 @@ function download() {
 }
 
 $("textarea").addEventListener("input", () => {
-    save()
+    if ($("textarea").value == "") {
+        // Remove the value of textarea from the localStorage.
+        localStorage.removeItem("textarea")
+    } else {
+        save()
+    }
 })
 
 $("#download").addEventListener("click", () => {
@@ -178,8 +183,14 @@ $("input[type=\"checkbox\"]").addEventListener("change", (element) => {
     // Check if the checkbox is checked.
     if (element.target.checked) {
         copy_on_select = true
+
+        // Save the checkbox state in the localStorage.
+        localStorage.setItem("copy-on-select", true)
     } else {
         copy_on_select = false
+
+        // Remove the checkbox state from the localStorage.
+        localStorage.removeItem("copy-on-select")
     }
 })
 
@@ -202,6 +213,11 @@ if (localStorage.getItem("instructions") == "closed") {
     $("#overlay").classList.add("hide")
 }
 
+// Check if the checkbox should be checked in the localStorage, and do so if this is the case.
+if (localStorage.getItem("copy-on-select")) {
+    $("input[type=\"checkbox\"]").checked = true
+}
+
 // Check if speech recognition is supported. If not, log an error message.
 // https://blog.zolomohan.com/speech-recognition-in-javascript
 if ("webkitSpeechRecognition" in window) {
@@ -213,8 +229,8 @@ if ("webkitSpeechRecognition" in window) {
     // Enable interim results.
     speechRecognition.interimResults = true
     
-    // Retrieve the value of the language from the localStorage and set the language accordingly.
-    if (localStorage.getItem("language") == "en-US") {
+    // Check if a language is stored in the localStorage and set the language accordingly.
+    if (localStorage.getItem("language")) {
         speechRecognition.lang = "en-US"
 
         // Change the language in the dropdown.
@@ -374,7 +390,8 @@ if ("webkitSpeechRecognition" in window) {
                     // Clear the textarea.
                     $("textarea").value = ""
 
-                    save()
+                    // Remove the value of textarea from the localStorage.
+                    localStorage.removeItem("textarea")
 
                     // Fill and show the pop-up.
                     popup("bin.png", "Tekstveld leeggemaakt.")
@@ -415,8 +432,14 @@ if ("webkitSpeechRecognition" in window) {
         // Change the language.
         speechRecognition.lang = $("#language").value
 
-        // Save the language in the localStorage.
-        localStorage.setItem("language", $("#language").value)
+        if ($("#language").value == "en-US") {
+            // Save the language in the localStorage.
+            localStorage.setItem("language", $("#language").value)
+        } else {
+            // Remove the language from the localStorage.
+            localStorage.removeItem("language")
+        }
+        
 
         // Restart the speech recognition.
         speechRecognition.stop()
