@@ -24,12 +24,12 @@ Een kennis van Eric beschikt niet over de fijne motoriek die nodig is om gemakke
 
 ### Exclusive Design Principles
 **Study situation**  
-Study situation gaat over het bestuderen van de situatie van één specifiek persoon, zoals de lichamelijke mogelijkheden en obstakels.
+Study situation gaat over het bestuderen van de situatie van één specifiek persoon, zoals de lichamelijke mogelijkheden en obstakels van de persoon in kwestie. Door de situatie te bestuderen, heb ik o.a. de onderstaande verbetering in het ontwerp gerealiseerd.
 
 - Zo klein mogelijk aantal benodigde klikken.
 
 **Prioritise identity**  
-Prioritise identity gaat over het personaliseren van het product voor één specifiek persoon, door aandachtig te luisteren naar de persoon in kwestie en diegene beter te leren kennen.
+Prioritise identity gaat over het personaliseren van het product voor één specifiek persoon, door aandachtig te luisteren naar de persoon in kwestie en diegene beter te leren kennen. Door identiteit prioriteit te geven, heb ik o.a. de onderstaande verbeteringen in het ontwerp gerealiseerd.
 
 - Eric's naam in de titel.
 - Light mode in plaats van dark mode.
@@ -37,13 +37,13 @@ Prioritise identity gaat over het personaliseren van het product voor één spec
 - Rolstoel die met een vaart onderaan het scherm langsrijdt zodra de naam "Eric" wordt genoemd.
 
 **Ignore conventions**  
-Ignore conventions gaat over het loslaten van theoretische ontwerpregels, en het prioriteren van een ontwerp dat voor één specifiek persoon het beste werkt.
+Ignore conventions gaat over het loslaten van theoretische ontwerpregels, en het prioriteren van een ontwerp dat voor de persoon kwestie het beste werkt. Door conventies te negeren, heb ik o.a. de onderstaande verbeteringen in het ontwerp gerealiseerd.
 
 - Automatisch starten met opnemen zodra de website wordt geopend.
 - Niet automatisch stoppen met opnemen na verloop van tijd.
 
 **Add nonsense**  
-Ignore conventions gaat over het toevoegen van (in het eerste opzicht) nutteloze functies, als open deur voor nieuwe inzichten. Of simpelweg omdat het leuk is.
+Ignore conventions gaat over het toevoegen van (in het eerste opzicht) nutteloze functies, als open deur voor nieuwe inzichten. Of simpelweg omdat het leuk is. Door onzin toe te voegen, heb ik o.a. de onderstaande verbetering in het ontwerp gerealiseerd.
 
 - Rolstoel die met een vaart onderaan het scherm langsrijdt zodra de naam "Eric" wordt genoemd.
 
