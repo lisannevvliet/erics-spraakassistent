@@ -382,7 +382,12 @@ if ("webkitSpeechRecognition" in window) {
                     // https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Interact_with_the_clipboard#reading_from_the_clipboard
                     navigator.clipboard.readText().then((text) => {
                         // Add the clipboard text to the textarea.
-                        $("textarea").value += text
+                        if ($("textarea").value == "") {
+                            $("textarea").value = text
+                        } else {
+                            $("textarea").value += ` ${text}`
+                        }
+                        
                 
                         // Fill and show the pop-up.
                         popup("clipboard.png", `"${text}" geplakt.`)
@@ -397,12 +402,16 @@ if ("webkitSpeechRecognition" in window) {
                     string = result.substring(result.indexOf("schrijf") + "schrijf".length + 1)
 
                     // Add the string to the textarea.
-                    $("textarea").value += string
+                    if ($("textarea").value == "") {
+                        $("textarea").value = string
+                    } else {
+                        $("textarea").value += ` ${string}`
+                    }
 
                     save()
 
                     // Fill and show the pop-up.
-                    popup("pen.png", `${string} geschreven.`)
+                    popup("pen.png", `"${string}" geschreven.`)
                 }
 
                 // Check if the sentence "download tekstveld" is said.
