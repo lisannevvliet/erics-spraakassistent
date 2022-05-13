@@ -29,7 +29,7 @@ Study situation gaat over het bestuderen van de situatie van één specifiek per
 - Zo klein mogelijk aantal benodigde klikken.
 
 **Prioritise identity**  
-Prioritise identity gaat over het personaliseren van het product voor één specifiek persoon, door aandachtig te luisteren naar de persoon in kwestie en diegene beter te leren kennen. Door identiteit prioriteit te geven, heb ik o.a. de onderstaande verbeteringen in het ontwerp gerealiseerd.
+Prioritise identity gaat over het personaliseren van het product voor één specifiek persoon, door aandachtig te luisteren naar de persoon in kwestie en diegene beter te leren kennen. Door de identiteit prioriteit te geven, heb ik o.a. de onderstaande verbeteringen in het ontwerp gerealiseerd.
 
 - Eric's naam in de titel.
 - Light mode in plaats van dark mode.
