@@ -37,7 +37,7 @@ Prioritise identity gaat over het personaliseren van het product voor één spec
 - Rolstoel die met een vaart onderaan het scherm langsrijdt zodra de naam "Eric" wordt genoemd.
 
 **Ignore conventions**  
-Ignore conventions gaat over het loslaten van theoretische ontwerpregels, en het prioriteren van een ontwerp dat voor de persoon kwestie het beste werkt. Door conventies te negeren, heb ik o.a. de onderstaande verbeteringen in het ontwerp gerealiseerd.
+Ignore conventions gaat over het loslaten van theoretische ontwerpregels, en het prioriteren van een ontwerp dat voor één specifiek persoon het beste werkt. Door conventies te negeren, heb ik o.a. de onderstaande verbeteringen in het ontwerp gerealiseerd.
 
 - Automatisch starten met opnemen zodra de website wordt geopend.
 - Niet automatisch stoppen met opnemen na verloop van tijd.
