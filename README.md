@@ -80,8 +80,7 @@ Dit project is gelicenseerd onder de [GPL-3.0 licentie](https://github.com/lisan
 
 ### Versie 1
 **Datum:**  21 april 2022  
-**Code: [GitHub](https://github.com/lisannevvliet/erics-spraakassistent/tree/versie-1)**  
-**Live demo: [Heroku app](https://erics-spraakassistent-versie-1.herokuapp.com/)**
+**Code: [GitHub](https://github.com/lisannevvliet/erics-spraakassistent/tree/versie-1)**
 
 Tijdens de eerste test lag de focus voornamelijk op kennismaken met Eric en laten zien wat ik tot nu toe had. Nadat ik dit gedemonstreerd had, ging Eric zelf de spraakassistent uitproberen. Hij reageerde enthousiast en kwam met de onderstaande verbeterpunten en suggesties.
 
@@ -108,8 +107,7 @@ Later ga ik eventueel een vertaalmachine implementeren, grote stukken tekst op e
 
 ### Versie 2
 **Datum:**  28 april 2022  
-**Code: [GitHub](https://github.com/lisannevvliet/erics-spraakassistent/tree/versie-2)**  
-**Live demo: [Heroku app](https://erics-spraakassistent-versie-2.herokuapp.com/)**
+**Code: [GitHub](https://github.com/lisannevvliet/erics-spraakassistent/tree/versie-2)**
 
 Tijdens de tweede test heb ik de eerste paar minuten niets gezegd, om de pijnpunten van de website te achterhalen. Een ander verschil met de eerste test was het apparaat waarop de website getoond werd, dit maal gebruikte hij namelijk zijn eigen Windows-laptop. Hij was wederom positief verrast. Tijdens de eerste test had hij verteld dat hij graag wilde dat de spraakassistent automatisch begon met opnemen, maar nu kwam hij hierop terug. Toen ik vroeg waarom hij dit liever niet wilde, legde hij uit dat hij het niet fijn vond dat er een kans was dat de gebruiker niet weet dat de website aan het opnemen is. Om dit te voorkomen, stelde hij voor om een melding hiervan bovenaan de website te tonen. Zo blijft de website toch toegankelijk, omdat de gebruiker niet hoeft te klikken, maar kan hij/zij niet missen dat de microfoon aanstaat. Hier stemde hij mee in. De onderstaande takenlijst heb ik opgesteld tijdens en na de tweede test, aan de hand van Eric's verbeterpunten en suggesties.
 
@@ -123,8 +121,7 @@ Voor de derde test ga ik alle bovenstaande taken uitvoeren. Daarnaast ga ik grot
 
 ### Versie 3
 **Datum:**  12 mei 2022  
-**Code: [GitHub](https://github.com/lisannevvliet/erics-spraakassistent/tree/versie-3)**  
-**Live demo: [Heroku app](https://erics-spraakassistent-versie-3.herokuapp.com/)**
+**Code: [GitHub](https://github.com/lisannevvliet/erics-spraakassistent/tree/versie-3)**
 
 Tijdens de derde test begon ik met het laten zien aan Eric van de vorige twee versies, om zijn geheugen op te frissen. Vervolgens liet ik zien wat de huidige stand van zaken is, en welke feedback ik allemaal in deze derde versie heb verwerkt. Hij wist inmiddels dat de spraakcommando's niet gecombineerd en helemaal juist uitgesproken moeten worden, om het gewenste resultaat te krijgen. Na mijn uitleg liet ik hem de spraakassistent gebruiken, en dit ging verbazingwekkend goed. Zowel hij als Vasilis waren onder de indruk van de technische mogelijkheden ervan. De onderstaande vragen had ik voorbereid, met zijn antwoorden eronder vermeld.
 
