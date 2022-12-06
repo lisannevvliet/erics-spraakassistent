@@ -54,10 +54,10 @@ Ignore conventions gaat over het toevoegen van (in het eerste opzicht) nutteloze
 Na het vragen om toestemming om de microfoon te gebruiken, begint Eric's Spraakassistent automatisch met opnemen. De tussentijdse resultaten van de spraakassistent worden als grijze tekst getoond in het transcript. Na een aantal seconden heeft de spraakassistent besloten wat er daadwerkelijk gezegd is, kleurt de tekst zwart en wordt het spraakcommando uitgevoerd. De tekst in het tekstveld kan zowel met spraakcommando's worden gemanipuleerd als handmatig. Alle mogelijke spraakcommando's staan in een lijst op de pagina. Tijdens het eerste bezoek worden er een aantal instructies getoond, die kunnen worden weggeklikt en altijd nog kunnen worden bekeken door middel van een knop links onderin de pagina. Het is mogelijk om de taal waarin gesproken wordt aan te passen, zodat het transcript accurater wordt. Daarnaast kan er aangevinkt worden dat de geselecteerde tekst automatisch gekopieërd wordt. Deze twee opties, evenals de tekst in het tekstveld en of de instructies getoond moeten worden (alleen bij het eerste bezoek), worden opgeslagen in de localStorage, zodat ze bij een verversing van de pagina niet verloren gaan.
 
 ## Live demo
-https://erics-spraakassistent.herokuapp.com/
+https://erics-spraakassistent.onrender.com
 
 ## Installatie
-Om te bekijken, bezoek de [Heroku app](https://erics-spraakassistent.herokuapp.com/). Om lokale wijzigingen aan te brengen, clone de repository en bewerk de bestanden in een IDE.
+Om te bekijken, bezoek de [website](https://erics-spraakassistent.onrender.com). Om lokale wijzigingen aan te brengen, clone de repository en bewerk de bestanden in een IDE.
 
 ## Checklist
 De voltooide taken zijn te vinden in de [commit messages](https://github.com/lisannevvliet/erics-spraakassistent/commits/main). De volgende taken konden niet binnen de gestelde tijd worden voltooid, maar zouden leuk zijn om te hebben.
